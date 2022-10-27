@@ -15,5 +15,11 @@ namespace PulperiaPY
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Conexion conexion = new Conexion();
+            conexion.AbrirConexion();
+        }
     }
 }
