@@ -21,5 +21,11 @@ namespace PulperiaPY
             Conexion conexion = new Conexion();
             conexion.AbrirConexion();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            usuario.Show();
+        }
     }
 }
