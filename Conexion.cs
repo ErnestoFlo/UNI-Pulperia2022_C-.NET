@@ -12,8 +12,8 @@ namespace PulperiaPY
 {
     class Conexion
     {
-        //String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaHermanos; Integrated Security= True";
-        String connection = "Server=tcp:pulperia.database.windows.net,1433;Initial Catalog=GrupoClinica;Persist Security Info=False;User ID=administrador;Password=Pulperia2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaHermanos; Integrated Security= True";
+        //String connection = "Server=tcp:pulperia.database.windows.net,1433;Initial Catalog=GrupoClinica;Persist Security Info=False;User ID=administrador;Password=Pulperia2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public SqlConnection Conectar = new SqlConnection();
         public Conexion(){
             Conectar.ConnectionString = connection;
