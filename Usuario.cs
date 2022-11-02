@@ -26,5 +26,10 @@ namespace PulperiaPY
             string id = Interaction.InputBox("Ingrese ID", "Eliminar Usuario");
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
