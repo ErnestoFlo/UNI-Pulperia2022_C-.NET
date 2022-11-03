@@ -31,5 +31,17 @@ namespace PulperiaPY
         {
 
         }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            ListadoUsuarios buscar = new ListadoUsuarios();
+            buscar.Show();
+        }
+
+        private void Usuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1 login = new Form1();
+            login.Show();
+        }
     }
 }

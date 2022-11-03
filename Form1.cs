@@ -28,6 +28,8 @@ namespace PulperiaPY
             SqlCommand cmd = new SqlCommand("exec spLogin @user, @pass", conexion.Conectar);
             cmd.Parameters.AddWithValue("@user", txtuser.Text);
             cmd.Parameters.AddWithValue("@pass", txtpass.Text);
+            try
+            {
 
             SqlDataReader lector = cmd.ExecuteReader();
 
@@ -41,7 +43,12 @@ namespace PulperiaPY
             }
             else
             {
-                Console.WriteLine(lector.Read());
+                MessageBox.Show("Usuario o Contrasña incorrecta", "Aviso");
+            }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
