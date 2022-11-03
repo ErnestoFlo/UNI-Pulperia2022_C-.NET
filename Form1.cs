@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace PulperiaPY
 {
@@ -15,17 +16,34 @@ namespace PulperiaPY
         {
             InitializeComponent();
         }
+        Conexion conexion = new Conexion();
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Conexion conexion = new Conexion();
             conexion.AbrirConexion();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario();
-            usuario.Show();
+            SqlCommand cmd = new SqlCommand("exec spLogin @user, @pass", conexion.Conectar);
+            cmd.Parameters.AddWithValue("@user", txtuser.Text);
+            cmd.Parameters.AddWithValue("@pass", txtpass.Text);
+
+            SqlDataReader lector = cmd.ExecuteReader();
+
+            if (lector.Read())
+            {
+                conexion.CerrarConexion();
+                Usuario usuario = new Usuario();
+                usuario.Show();
+                this.Hide();
+
+            }
+            else
+            {
+                Console.WriteLine(lector.Read());
+            }
+
         }
     }
 }

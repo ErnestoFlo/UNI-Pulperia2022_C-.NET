@@ -32,8 +32,8 @@ namespace PulperiaPY
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtuser = new System.Windows.Forms.TextBox();
+            this.txtpass = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -65,19 +65,19 @@ namespace PulperiaPY
             this.label3.TabIndex = 2;
             this.label3.Text = "Contraseña";
             // 
-            // textBox1
+            // txtuser
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtuser.Location = new System.Drawing.Point(115, 153);
+            this.txtuser.Name = "txtuser";
+            this.txtuser.Size = new System.Drawing.Size(100, 20);
+            this.txtuser.TabIndex = 3;
             // 
-            // textBox2
+            // txtpass
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 202);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtpass.Location = new System.Drawing.Point(115, 202);
+            this.txtpass.Name = "txtpass";
+            this.txtpass.Size = new System.Drawing.Size(100, 20);
+            this.txtpass.TabIndex = 4;
             // 
             // button1
             // 
@@ -95,12 +95,12 @@ namespace PulperiaPY
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 338);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtpass);
+            this.Controls.Add(this.txtuser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -114,8 +114,8 @@ namespace PulperiaPY
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtuser;
+        private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.Button button1;
     }
 }
