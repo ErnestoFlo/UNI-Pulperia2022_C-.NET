@@ -43,13 +43,20 @@ namespace PulperiaPY
             }
             else
             {
-                MessageBox.Show("Usuario o Contrasña incorrecta", "Aviso");
+                MessageBox.Show("Usuario o Contraseña incorrecta", "Aviso");
             }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Close();
 
         }
     }
