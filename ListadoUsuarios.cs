@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace PulperiaPY
 {
     public partial class ListadoUsuarios : Form
     {
+        public string idUser;
         public ListadoUsuarios()
         {
             InitializeComponent();
@@ -118,37 +120,70 @@ namespace PulperiaPY
             conexion.CerrarConexion();
         }
 
-        private void btnagregar_Click(object sender, EventArgs e)
-        {
-            Usuario agregar = new Usuario();
-            agregar.Show();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            Usuario editar = new Usuario();
-           
-            editar.Show();
-        }
-
-        
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                int idUser = Convert.ToInt32(this.dgvUsers.SelectedRows[0].Cells[0].Value);
+            try{
+                idUser = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[0].Value);
+                string usuario = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[1].Value);
+                string contraseña = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[2].Value);
+                string nombre = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[3].Value);
+                string apellido = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[4].Value);
+                string correo = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[5].Value);
+                string telefono = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[6].Value);
             }
-            catch (Exception)
-            {
-
+            catch (Exception){
                 throw;
             }
         }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Usuario editar = new Usuario();
+            //igualar variables a las demas delsiguiente formulario
+
+            editar.operacion = "Editar";
+            editar.Show();
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            Usuario agregar = new Usuario();
+            agregar.operacion = "Agregar";
+            agregar.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idUser != "")
+            {
+                conexion.AbrirConexion();
+                SqlCommand cmd = new SqlCommand("exec EliminarUsuario @idUsuario", conexion.Conectar);
+                cmd.Parameters.AddWithValue("@idUsuario", idUser);
+
+                try
+                {
+                    int i = cmd.ExecuteNonQuery();
+                    if (i != 0)
+                    {
+                        MessageBox.Show("Usuario Eliminado Satisfactoriamente");
+                        conexion.CerrarConexion();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar el usuario");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error en la base de datos: \n" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar un usuario de la tabla", "Advertencia");
+            }
+        }
+
     }
+
 }
+

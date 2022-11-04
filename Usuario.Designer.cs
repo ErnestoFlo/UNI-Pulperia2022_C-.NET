@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuario));
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.txtcontra = new System.Windows.Forms.TextBox();
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
@@ -53,13 +53,13 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtid
+            // txtId
             // 
-            this.txtid.Location = new System.Drawing.Point(115, 38);
-            this.txtid.Margin = new System.Windows.Forms.Padding(4);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(71, 22);
-            this.txtid.TabIndex = 3;
+            this.txtId.Location = new System.Drawing.Point(115, 38);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(71, 22);
+            this.txtId.TabIndex = 3;
             // 
             // txtcontra
             // 
@@ -213,7 +213,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtid);
+            this.groupBox2.Controls.Add(this.txtId);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtnombre);
@@ -283,7 +283,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        public System.Windows.Forms.TextBox txtid;
+        public System.Windows.Forms.TextBox txtId;
         public System.Windows.Forms.TextBox txtcontra;
         public System.Windows.Forms.TextBox txtusuario;
         public System.Windows.Forms.TextBox txtnombre;
