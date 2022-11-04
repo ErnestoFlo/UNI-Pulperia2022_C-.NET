@@ -117,5 +117,38 @@ namespace PulperiaPY
             dgvUsers.DataSource = table;
             conexion.CerrarConexion();
         }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            Usuario agregar = new Usuario();
+            agregar.Show();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Usuario editar = new Usuario();
+           
+            editar.Show();
+        }
+
+        
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int idUser = Convert.ToInt32(this.dgvUsers.SelectedRows[0].Cells[0].Value);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
