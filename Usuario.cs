@@ -20,11 +20,6 @@ namespace PulperiaPY
         }
         Conexion conexion = new Conexion();
        
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
         private void Usuario_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form1 login = new Form1();
@@ -34,6 +29,41 @@ namespace PulperiaPY
         private void Usuario_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
+            if (operacion == "Agregar")
+            {
+                btnAgregarEditar.Text = "Agregar";
+            }
+            else
+            {
+                btnAgregarEditar.Text = "Editar";
+
+                conexion.AbrirConexion();
+                SqlCommand cmd = new SqlCommand("exec ContraseñaUsuario @idUsuario", conexion.Conectar);
+                cmd.Parameters.AddWithValue("@idUsuario", txtId.Text);
+             
+                try
+                {
+
+                    SqlDataReader lector = cmd.ExecuteReader();
+                   
+
+                    if (lector.Read())
+                    {
+                        txtcontra.Text = Convert.ToString(lector[0]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No lo trae");
+
+                    }
+                    conexion.CerrarConexion();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
         }
 
         private void btnAgregarEditar_Click(object sender, EventArgs e)
@@ -56,7 +86,7 @@ namespace PulperiaPY
                         int i = cmd.ExecuteNonQuery();
                         if (i != 0)
                         {
-                            MessageBox.Show("Usuario Ingresado");
+                            MessageBox.Show("Usuario Ingresado satisfactoriamente");
                             txtusuario.Text = "";
                             txtcontra.Text = "";
                             txtnombre.Text = "";
@@ -64,6 +94,9 @@ namespace PulperiaPY
                             txtcorreo.Text = "";
                             txttelefono.Text = "";
                             conexion.CerrarConexion();
+                            ListadoUsuarios usuarios = new ListadoUsuarios();
+                            usuarios.Show();
+                            this.Hide();
                         }
                         else
                         {
@@ -93,18 +126,16 @@ namespace PulperiaPY
                         int i = cmd.ExecuteNonQuery();
                         if (i != 0)
                         {
-                            MessageBox.Show("Usuario Ingresado");
-                            txtusuario.Text = "";
-                            txtcontra.Text = "";
-                            txtnombre.Text = "";
-                            txtapellido.Text = "";
-                            txtcorreo.Text = "";
-                            txttelefono.Text = "";
+                            MessageBox.Show("Usuario actualizado satisfactoriamente");
                             conexion.CerrarConexion();
+                            ListadoUsuarios usuarios = new ListadoUsuarios();
+                            usuarios.Show();
+                            this.Hide();
+
                         }
                         else
                         {
-                            MessageBox.Show("Error al ingresar Datos");
+                            MessageBox.Show("Error al actualizar los  Datos");
 
                         }
                     }
@@ -123,6 +154,7 @@ namespace PulperiaPY
         {
             ListadoUsuarios usuarios = new ListadoUsuarios();
             usuarios.Show();
+            this.Hide();
         }
     }
 }

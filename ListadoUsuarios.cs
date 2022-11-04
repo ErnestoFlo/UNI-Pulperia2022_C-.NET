@@ -15,7 +15,13 @@ namespace PulperiaPY
 {
     public partial class ListadoUsuarios : Form
     {
-        public string idUser;
+        public int idUser;
+        public string usuario;
+        public string contraseña;
+        public string nombre;
+        public string apellido;
+        public string correo;
+        public string telefono;
         public ListadoUsuarios()
         {
             InitializeComponent();
@@ -119,29 +125,27 @@ namespace PulperiaPY
             dgvUsers.DataSource = table;
             conexion.CerrarConexion();
         }
-
-        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try{
-                idUser = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[0].Value);
-                string usuario = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[1].Value);
-                string contraseña = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[2].Value);
-                string nombre = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[3].Value);
-                string apellido = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[4].Value);
-                string correo = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[5].Value);
-                string telefono = Convert.ToString(this.dgvUsers.SelectedRows[0].Cells[6].Value);
-            }
-            catch (Exception){
-                throw;
-            }
-        }
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Usuario editar = new Usuario();
-            //igualar variables a las demas delsiguiente formulario
-
-            editar.operacion = "Editar";
-            editar.Show();
+            if (idUser == 0)
+            {
+                MessageBox.Show("Debe seleccionar un usuario primero");
+            }
+            else
+            {
+                Usuario editar = new Usuario();
+                //igualar variables a las demas delsiguiente formulario
+                editar.txtId.Text = Convert.ToString(idUser);
+                editar.txtusuario.Text = usuario;
+                editar.txtcontra.Text = contraseña;
+                editar.txtnombre.Text = nombre;
+                editar.txtapellido.Text = apellido;
+                editar.txtcorreo.Text = correo;
+                editar.txttelefono.Text = telefono;
+                editar.operacion = "Editar";
+                editar.Show();
+                this.Hide();
+            }
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
@@ -149,40 +153,77 @@ namespace PulperiaPY
             Usuario agregar = new Usuario();
             agregar.operacion = "Agregar";
             agregar.Show();
+            this.Hide();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (idUser != "")
-            {
-                conexion.AbrirConexion();
-                SqlCommand cmd = new SqlCommand("exec EliminarUsuario @idUsuario", conexion.Conectar);
-                cmd.Parameters.AddWithValue("@idUsuario", idUser);
 
-                try
-                {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i != 0)
-                    {
-                        MessageBox.Show("Usuario Eliminado Satisfactoriamente");
-                        conexion.CerrarConexion();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al eliminar el usuario");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error en la base de datos: \n" + ex.Message);
-                }
+
+            if (idUser == 0)
+            {
+                MessageBox.Show("Debe seleccionar un usuario primero");
             }
             else
             {
-                MessageBox.Show("Primero debe seleccionar un usuario de la tabla", "Advertencia");
+               
+                if (MessageBox.Show("¿Seguro que desea eliminar este usuario?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    conexion.AbrirConexion();
+                    SqlCommand cmd = new SqlCommand("exec EliminaUsuario @idUsuario", conexion.Conectar);
+                    cmd.Parameters.AddWithValue("@idUsuario", idUser);
+
+                    try
+                    {
+                        int i = cmd.ExecuteNonQuery();
+                        if (i != 0)
+                        {
+                            MessageBox.Show("Usuario Eliminado Satisfactoriamente");
+                            conexion.CerrarConexion();
+                            actualizar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al eliminar el usuario");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error en la base de datos: \n" + ex.Message);
+                    }
+                }
             }
         }
 
+
+        private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                idUser = Convert.ToInt32(this.dgvUsers.SelectedRows[0].Cells[0].Value);
+                usuario = this.dgvUsers.SelectedRows[0].Cells[1].Value.ToString();
+                nombre = this.dgvUsers.SelectedRows[0].Cells[2].Value.ToString();
+                apellido = this.dgvUsers.SelectedRows[0].Cells[3].Value.ToString();
+                correo = this.dgvUsers.SelectedRows[0].Cells[4].Value.ToString();
+                telefono = this.dgvUsers.SelectedRows[0].Cells[5].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+           
+        }
+
+        private void actualizar()
+        {
+            SqlCommand cmd = new SqlCommand("exec VerUsuarios", conexion.Conectar);
+            adapter.SelectCommand = cmd;
+            table.Rows.Clear();
+            adapter.Fill(table);
+            dgvUsers.DataSource = table;
+            conexion.CerrarConexion();
+        }
     }
 
 }

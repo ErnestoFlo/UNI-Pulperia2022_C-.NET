@@ -178,7 +178,6 @@
             this.label7.Size = new System.Drawing.Size(61, 16);
             this.label7.TabIndex = 16;
             this.label7.Text = "Telefono";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pictureBox1
             // 
