@@ -57,7 +57,7 @@ namespace PulperiaPY
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(28, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 16);
+            this.label1.Size = new System.Drawing.Size(125, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre proveedor:";
             // 
@@ -83,7 +83,7 @@ namespace PulperiaPY
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(221, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 16);
+            this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Teléfono:";
             // 
@@ -102,7 +102,7 @@ namespace PulperiaPY
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(353, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.Size = new System.Drawing.Size(64, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Dirección";
             // 
@@ -194,7 +194,7 @@ namespace PulperiaPY
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(28, 83);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 16);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 16;
             this.label4.Text = "Estado:";
             // 
@@ -228,7 +228,8 @@ namespace PulperiaPY
             this.cmbFiltroProv.FormattingEnabled = true;
             this.cmbFiltroProv.Items.AddRange(new object[] {
             "Activos",
-            "Inactivos"});
+            "Inactivos",
+            "Todos"});
             this.cmbFiltroProv.Location = new System.Drawing.Point(31, 161);
             this.cmbFiltroProv.Name = "cmbFiltroProv";
             this.cmbFiltroProv.Size = new System.Drawing.Size(101, 21);
@@ -241,7 +242,7 @@ namespace PulperiaPY
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(28, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 16);
+            this.label5.Size = new System.Drawing.Size(136, 16);
             this.label5.TabIndex = 21;
             this.label5.Text = "Mostrar proveedores:";
             // 
