@@ -12,7 +12,7 @@ namespace PulperiaPY
 {
     class Conexion
     {
-        String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaHermanos; Integrated Security= True";
+        String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaproyect; Integrated Security= True";
         //String connection = "Server=tcp:pulperia.database.windows.net,1433;Initial Catalog=GrupoClinica;Persist Security Info=False;User ID=administrador;Password=Pulperia2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public SqlConnection Conectar = new SqlConnection();
         public SqlDataAdapter adaptador;
@@ -66,10 +66,10 @@ namespace PulperiaPY
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Conectar.Close();
-                MessageBox.Show("Error en la conexión!", "Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en la conexión! "+ e.Message, "Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -92,6 +92,33 @@ namespace PulperiaPY
                 Conectar.Close();
                 MessageBox.Show("Error en la conexión");
                 return false;
+            }
+            finally { Conectar.Close(); }
+        }
+
+
+        //Metodo para obtener variables INT de la base de datos. (Se envia el comando sql) de donde se quiere obtener la variable [RETORNA -1 SI NO ENCUENTRA UN VALOR]
+        public int obtenerVariableEntera(string instruccion)
+        {
+            try
+            {
+                Conectar.Open();
+                int valor = 0;
+                comando = new SqlCommand(instruccion, Conectar);
+                lectorVariables = comando.ExecuteReader();
+                if (lectorVariables.Read())
+                {
+                    valor = Convert.ToInt16(lectorVariables.GetValue(0));
+                }
+                lectorVariables.Close();
+                Conectar.Close();
+                return valor;
+            }
+            catch (Exception)
+            {
+                Conectar.Close();
+                MessageBox.Show("Error en la conexión");
+                return -1;
             }
             finally { Conectar.Close(); }
         }

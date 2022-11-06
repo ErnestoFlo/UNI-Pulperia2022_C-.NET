@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVerTodo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCodigoBusqueda = new System.Windows.Forms.TextBox();
             this.cmbFiltroBusqueda = new System.Windows.Forms.ComboBox();
@@ -36,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
-            this.btnVerTodo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
@@ -55,12 +55,22 @@
             this.panel1.Size = new System.Drawing.Size(776, 130);
             this.panel1.TabIndex = 0;
             // 
+            // btnVerTodo
+            // 
+            this.btnVerTodo.Location = new System.Drawing.Point(623, 79);
+            this.btnVerTodo.Name = "btnVerTodo";
+            this.btnVerTodo.Size = new System.Drawing.Size(105, 24);
+            this.btnVerTodo.TabIndex = 3;
+            this.btnVerTodo.Text = "Ver Todo";
+            this.btnVerTodo.UseVisualStyleBackColor = true;
+            this.btnVerTodo.Click += new System.EventHandler(this.btnVerTodo_Click);
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(540, 79);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 24);
-            this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -70,7 +80,7 @@
             this.txtCodigoBusqueda.Location = new System.Drawing.Point(338, 79);
             this.txtCodigoBusqueda.Name = "txtCodigoBusqueda";
             this.txtCodigoBusqueda.Size = new System.Drawing.Size(194, 22);
-            this.txtCodigoBusqueda.TabIndex = 3;
+            this.txtCodigoBusqueda.TabIndex = 1;
             // 
             // cmbFiltroBusqueda
             // 
@@ -84,7 +94,7 @@
             this.cmbFiltroBusqueda.Location = new System.Drawing.Point(124, 78);
             this.cmbFiltroBusqueda.Name = "cmbFiltroBusqueda";
             this.cmbFiltroBusqueda.Size = new System.Drawing.Size(206, 24);
-            this.cmbFiltroBusqueda.TabIndex = 2;
+            this.cmbFiltroBusqueda.TabIndex = 0;
             // 
             // label2
             // 
@@ -111,7 +121,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 148);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(776, 290);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 4;
             // 
             // dgvListaProductos
             // 
@@ -126,17 +136,9 @@
             this.dgvListaProductos.RowHeadersWidth = 51;
             this.dgvListaProductos.RowTemplate.Height = 24;
             this.dgvListaProductos.Size = new System.Drawing.Size(776, 290);
-            this.dgvListaProductos.TabIndex = 0;
-            // 
-            // btnVerTodo
-            // 
-            this.btnVerTodo.Location = new System.Drawing.Point(623, 79);
-            this.btnVerTodo.Name = "btnVerTodo";
-            this.btnVerTodo.Size = new System.Drawing.Size(105, 24);
-            this.btnVerTodo.TabIndex = 5;
-            this.btnVerTodo.Text = "Ver Todo";
-            this.btnVerTodo.UseVisualStyleBackColor = true;
-            this.btnVerTodo.Click += new System.EventHandler(this.btnVerTodo_Click);
+            this.dgvListaProductos.TabIndex = 4;
+            this.dgvListaProductos.TabStop = false;
+            this.dgvListaProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaProductos_CellDoubleClick);
             // 
             // ProductosVenta
             // 
@@ -145,6 +147,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ProductosVenta";
             this.Text = "ProductosVenta";
             this.Load += new System.EventHandler(this.ProductosVenta_Load);

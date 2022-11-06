@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\clsVariableGlobales.cs" />
     <Compile Include="Venta.cs">
       <SubType>Form</SubType>
     </Compile>
