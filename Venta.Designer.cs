@@ -54,19 +54,14 @@
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BotonEliminarProducto = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.lblTipoAccion = new System.Windows.Forms.Label();
             this.panelTotales = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnVerVentas = new System.Windows.Forms.Button();
+            this.btnCancelarVenta = new System.Windows.Forms.Button();
             this.btnEditarVenta = new System.Windows.Forms.Button();
             this.btnNuevaVenta = new System.Windows.Forms.Button();
-            this.btnCancelarVenta = new System.Windows.Forms.Button();
             this.gbInformacionVenta.SuspendLayout();
             this.gbInformacionProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
@@ -162,6 +157,7 @@
             this.btnBuscarVenta.TabIndex = 21;
             this.btnBuscarVenta.Text = "Buscar Venta";
             this.btnBuscarVenta.UseVisualStyleBackColor = true;
+            this.btnBuscarVenta.Click += new System.EventHandler(this.btnBuscarVenta_Click);
             // 
             // txtNumVenta
             // 
@@ -342,13 +338,6 @@
             this.dgvDetalleVenta.AllowUserToDeleteRows = false;
             this.dgvDetalleVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalleVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Producto,
-            this.Precio,
-            this.Cantidad,
-            this.SubTotal,
-            this.BotonEliminarProducto});
             this.dgvDetalleVenta.Location = new System.Drawing.Point(24, 279);
             this.dgvDetalleVenta.Name = "dgvDetalleVenta";
             this.dgvDetalleVenta.ReadOnly = true;
@@ -358,51 +347,6 @@
             this.dgvDetalleVenta.TabIndex = 9;
             this.dgvDetalleVenta.TabStop = false;
             this.dgvDetalleVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleVenta_CellClick);
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "Eliminar";
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.MinimumWidth = 6;
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
-            // 
-            // BotonEliminarProducto
-            // 
-            this.BotonEliminarProducto.HeaderText = "";
-            this.BotonEliminarProducto.MinimumWidth = 6;
-            this.BotonEliminarProducto.Name = "BotonEliminarProducto";
-            this.BotonEliminarProducto.ReadOnly = true;
-            this.BotonEliminarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.BotonEliminarProducto.Text = "Eliminar";
             // 
             // btnAgregarProducto
             // 
@@ -418,7 +362,7 @@
             // 
             this.lblTipoAccion.AutoSize = true;
             this.lblTipoAccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lblTipoAccion.Location = new System.Drawing.Point(471, 23);
+            this.lblTipoAccion.Location = new System.Drawing.Point(352, 23);
             this.lblTipoAccion.Name = "lblTipoAccion";
             this.lblTipoAccion.Size = new System.Drawing.Size(55, 36);
             this.lblTipoAccion.TabIndex = 11;
@@ -440,6 +384,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnVerVentas);
             this.groupBox1.Controls.Add(this.btnCancelarVenta);
             this.groupBox1.Controls.Add(this.btnEditarVenta);
             this.groupBox1.Controls.Add(this.btnNuevaVenta);
@@ -450,11 +395,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acciónes";
             // 
+            // btnVerVentas
+            // 
+            this.btnVerVentas.Location = new System.Drawing.Point(312, 21);
+            this.btnVerVentas.Name = "btnVerVentas";
+            this.btnVerVentas.Size = new System.Drawing.Size(86, 50);
+            this.btnVerVentas.TabIndex = 36;
+            this.btnVerVentas.TabStop = false;
+            this.btnVerVentas.Text = "Ver Ventas";
+            this.btnVerVentas.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelarVenta
+            // 
+            this.btnCancelarVenta.Location = new System.Drawing.Point(128, 21);
+            this.btnCancelarVenta.Name = "btnCancelarVenta";
+            this.btnCancelarVenta.Size = new System.Drawing.Size(86, 50);
+            this.btnCancelarVenta.TabIndex = 35;
+            this.btnCancelarVenta.Text = "Cancelar Venta";
+            this.btnCancelarVenta.UseCompatibleTextRendering = true;
+            this.btnCancelarVenta.UseVisualStyleBackColor = true;
+            this.btnCancelarVenta.Click += new System.EventHandler(this.btnCancelarVenta_Click);
+            // 
             // btnEditarVenta
             // 
-            this.btnEditarVenta.Location = new System.Drawing.Point(289, 28);
+            this.btnEditarVenta.Location = new System.Drawing.Point(220, 21);
             this.btnEditarVenta.Name = "btnEditarVenta";
-            this.btnEditarVenta.Size = new System.Drawing.Size(126, 41);
+            this.btnEditarVenta.Size = new System.Drawing.Size(86, 50);
             this.btnEditarVenta.TabIndex = 34;
             this.btnEditarVenta.Text = "Editar Venta";
             this.btnEditarVenta.UseVisualStyleBackColor = true;
@@ -462,24 +428,13 @@
             // 
             // btnNuevaVenta
             // 
-            this.btnNuevaVenta.Location = new System.Drawing.Point(11, 28);
+            this.btnNuevaVenta.Location = new System.Drawing.Point(36, 21);
             this.btnNuevaVenta.Name = "btnNuevaVenta";
-            this.btnNuevaVenta.Size = new System.Drawing.Size(126, 41);
+            this.btnNuevaVenta.Size = new System.Drawing.Size(86, 50);
             this.btnNuevaVenta.TabIndex = 33;
             this.btnNuevaVenta.Text = "Nueva Venta";
             this.btnNuevaVenta.UseVisualStyleBackColor = true;
             this.btnNuevaVenta.Click += new System.EventHandler(this.btnNuevaVenta_Click);
-            // 
-            // btnCancelarVenta
-            // 
-            this.btnCancelarVenta.Enabled = false;
-            this.btnCancelarVenta.Location = new System.Drawing.Point(150, 28);
-            this.btnCancelarVenta.Name = "btnCancelarVenta";
-            this.btnCancelarVenta.Size = new System.Drawing.Size(126, 41);
-            this.btnCancelarVenta.TabIndex = 35;
-            this.btnCancelarVenta.Text = "Cancelar Venta";
-            this.btnCancelarVenta.UseVisualStyleBackColor = true;
-            this.btnCancelarVenta.Visible = false;
             // 
             // Venta
             // 
@@ -542,16 +497,11 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtNombreProducto;
         private System.Windows.Forms.TextBox txtCodProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
-        private System.Windows.Forms.DataGridViewButtonColumn BotonEliminarProducto;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnEditarVenta;
         private System.Windows.Forms.Button btnNuevaVenta;
         private System.Windows.Forms.Button btnBuscarVenta;
         private System.Windows.Forms.Button btnCancelarVenta;
+        private System.Windows.Forms.Button btnVerVentas;
     }
 }

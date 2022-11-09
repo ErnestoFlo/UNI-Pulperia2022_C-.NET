@@ -96,6 +96,26 @@ namespace PulperiaPY
             finally { Conectar.Close(); }
         }
 
+        //Agrega informacion de una consulta SQL a un DataTable
+        public DataTable llenarDT(string instruccion)
+        {
+            try
+            {
+                Conectar.Open();
+                adaptador = new SqlDataAdapter(instruccion, Conectar);
+                tablaDatos = new DataTable();
+                adaptador.Fill(tablaDatos);
+                Conectar.Close();
+                return tablaDatos;
+            }
+            catch (Exception)
+            {
+                Conectar.Close();
+                MessageBox.Show("Error en la conexión");
+                return null;
+            }
+            finally { Conectar.Close(); }
+        }
 
         //Metodo para obtener variables INT de la base de datos. (Se envia el comando sql) de donde se quiere obtener la variable [RETORNA -1 SI NO ENCUENTRA UN VALOR]
         public int obtenerVariableEntera(string instruccion)
