@@ -51,11 +51,6 @@ namespace PulperiaPY
                     {
                         txtcontra.Text = Convert.ToString(lector[0]);
                     }
-                    else
-                    {
-                        MessageBox.Show("No lo trae");
-
-                    }
                     conexion.CerrarConexion();
                 }
                 catch (Exception ex)
@@ -94,8 +89,6 @@ namespace PulperiaPY
                             txtcorreo.Text = "";
                             txttelefono.Text = "";
                             conexion.CerrarConexion();
-                            ListadoUsuarios usuarios = new ListadoUsuarios();
-                            usuarios.Show();
                             this.Hide();
                         }
                         else
@@ -153,7 +146,6 @@ namespace PulperiaPY
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             ListadoUsuarios usuarios = new ListadoUsuarios();
-            usuarios.Show();
             this.Hide();
         }
     }

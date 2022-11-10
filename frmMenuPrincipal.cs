@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.CodeDom;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace PulperiaPY
 {
+
     public partial class frmMenuPrincipal : Form
     {
+
         System.Drawing.Color activo = Color.FromArgb(75, 158, 253);
         System.Drawing.Color inactivo = Color.FromArgb(34, 43, 76);
 
@@ -48,6 +53,9 @@ namespace PulperiaPY
             btnProveedores.BackColor = inactivo;
             btnUsuarios.BackColor = activo;
             btnVentas.BackColor = inactivo;
+            abrirFormulario<ListadoUsuarios>();
+
+
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
@@ -97,6 +105,57 @@ namespace PulperiaPY
                 btnCerrarSesion.Visible = true;
                 btnCerrarSesion2.Visible = false;
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+            login.Show();
+            this.Hide();
+        }
+
+        private void btnCerrarSesion2_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+            login.Show();
+            this.Hide();
+        }
+
+        private void abrirFormulario<MiForm>() where MiForm : Form, new()
+        {
+            Form formulario;
+            formulario = panelContenedor.Controls.OfType<MiForm>().FirstOrDefault();
+
+            if (formulario == null)
+            {
+                formulario = new MiForm();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelContenedor.Controls.Add(formulario);
+                panelContenedor.Tag = formulario;
+                formulario.Show();
+                formulario.BringToFront();
+            }
+            else
+            {
+                formulario.BringToFront();
+            }
+        }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            abrirFormulario<Usuario>();
         }
     }
 }
