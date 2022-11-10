@@ -37,6 +37,7 @@ namespace PulperiaPY
                 if (lector.Read())
                 {
                     frmMenuPrincipal menuPrincipal = new frmMenuPrincipal();
+                    menuPrincipal.labelUsuario.Text = txtuser.Text;
                     menuPrincipal.Show();
                     this.Hide();
 
