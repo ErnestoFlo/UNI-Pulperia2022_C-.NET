@@ -36,8 +36,8 @@ namespace PulperiaPY
 
                 if (lector.Read())
                 {
-                    ListadoUsuarios ListadoUsuarios = new ListadoUsuarios();
-                    ListadoUsuarios.Show();
+                    frmMenuPrincipal menuPrincipal = new frmMenuPrincipal();
+                    menuPrincipal.Show();
                     this.Hide();
 
                 }
