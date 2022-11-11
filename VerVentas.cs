@@ -12,14 +12,186 @@ namespace PulperiaPY
 {
     public partial class VerVentas : Form
     {
+        Conexion conexionDb = new Conexion();
+
         public VerVentas()
         {
             InitializeComponent();
         }
+        private void VerVentas_Load(object sender, EventArgs e)
+        {
+            CargarTodasLasVentas();
+            dtpGetDate.Value = DateTime.Now;
+            txtCodigoBusqueda.Visible = true;
+            txtCodigoBusqueda.Enabled = true;
+            cmbEstadoVenta.Enabled = false;
+            cmbEstadoVenta.Visible = false;
+            dtpGetDate.Enabled = false;
+            dtpGetDate.Visible = false;
 
-        private void btnCancelarVenta_Click(object sender, EventArgs e)
+        }
+        private void CargarTodasLasVentas()
+        {
+            conexionDb.llenarDGV(dgvVentas, "SELECT dbo.Venta.IdVenta AS [Numero Venta], dbo.Venta.FechaVenta AS [Fecha Venta], " +
+                "dbo.Venta.Estado " +
+                "FROM dbo.Venta " +
+                "GROUP BY dbo.Venta.IdVenta, dbo.Venta.FechaVenta, dbo.Venta.Estado");
+        }        
+        private void CargarVentaCondicion(string Condicion, string CodigoBusqueda)
+        {
+            if (Condicion == "Fecha de Venta")
+            {
+                Condicion = "FechaVenta";
+            }
+            else if (Condicion == "Estado de Venta")
+            {
+                Condicion = "Estado";
+            }
+            else
+            {
+                Condicion = "IdVenta";
+            }
+
+            conexionDb.llenarDGV(dgvVentas, "SELECT dbo.Venta.IdVenta AS [Numero Venta], dbo.Venta.FechaVenta AS [Fecha Venta], " +
+                "dbo.Venta.Estado FROM dbo.Venta " +
+                "WHERE dbo.Venta."+Condicion+" = '"+CodigoBusqueda+"' " +
+                "GROUP BY dbo.Venta.IdVenta, dbo.Venta.FechaVenta, dbo.Venta.Estado");
+
+
+        }
+        private void cmbFiltroBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFiltroBusqueda.SelectedItem != null)
+            {
+
+                string Filtro = cmbFiltroBusqueda.SelectedItem.ToString();
+                if (Filtro == "Fecha de Venta")
+                {
+                    txtCodigoBusqueda.Visible = false;
+                    txtCodigoBusqueda.Enabled = false;
+                    cmbEstadoVenta.Enabled = false;
+                    cmbEstadoVenta.Visible = false;
+                    dtpGetDate.Value = DateTime.Now;
+                    dtpGetDate.Enabled = true;
+                    dtpGetDate.Visible = true;
+                }
+                else if (Filtro == "Estado de Venta")
+                {
+                    txtCodigoBusqueda.Visible = false;
+                    txtCodigoBusqueda.Enabled = false;
+                    cmbEstadoVenta.SelectedIndex = -1;
+                    cmbEstadoVenta.Enabled = true;
+                    cmbEstadoVenta.Visible = true;
+                    dtpGetDate.Enabled = false;
+                    dtpGetDate.Visible = false;
+                }
+                else
+                {
+                    txtCodigoBusqueda.Clear();
+                    txtCodigoBusqueda.Visible = true;
+                    txtCodigoBusqueda.Enabled = true;
+                    cmbEstadoVenta.Enabled = false;
+                    cmbEstadoVenta.Visible = false;
+                    dtpGetDate.Enabled = false;
+                    dtpGetDate.Visible= false;  
+                }
+            }
+        }
+
+        private void btnVerTodo_Click(object sender, EventArgs e)
+        {
+            CargarTodasLasVentas();
+            cmbFiltroBusqueda.SelectedIndex = -1;
+            cmbEstadoVenta.SelectedIndex = -1;
+            txtCodigoBusqueda.Visible = true;
+            txtCodigoBusqueda.Enabled = true;
+            cmbEstadoVenta.Enabled = false;
+            cmbEstadoVenta.Visible = false;
+            dtpGetDate.Enabled = false;
+            dtpGetDate.Visible = false;
+            dtpGetDate.Value = DateTime.Now;
+            txtCodigoBusqueda.Clear();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (cmbFiltroBusqueda.SelectedIndex != -1)
+            {
+                switch (cmbFiltroBusqueda.SelectedItem)
+                {
+                    case "Fecha de Venta":
+                        CargarVentaCondicion(cmbFiltroBusqueda.SelectedItem.ToString(), dtpGetDate.Value.ToString("yyyy-MM-dd"));
+                        break;
+
+                    case "Numero de Venta":
+                        if(txtCodigoBusqueda.Text != string.Empty)
+                        {
+                            CargarVentaCondicion(cmbFiltroBusqueda.SelectedItem.ToString(), txtCodigoBusqueda.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe escribir el codigo de busqueda seleccionado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        break;
+
+                    case "Estado de Venta":
+                        if (cmbEstadoVenta.SelectedIndex != -1)
+                        {
+                                CargarVentaCondicion(cmbFiltroBusqueda.SelectedItem.ToString(), cmbEstadoVenta.SelectedItem.ToString());
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe seleccionar el estado de la venta a buscar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                        break;
+
+                    default:
+                        MessageBox.Show("Debe seleccionar de que manera filtrar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar de que manera filtrar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvVentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            PanelVentas.Enabled = false;
+            PanelVentas.Visible= false;
+            PanelDetalleVenta.Visible = true;
+            PanelDetalleVenta.Enabled = true;
+           
+            txtNumVenta.Text = dgvVentas.Rows[e.RowIndex].Cells[0].Value.ToString();
+            if (dgvVentas.Rows[e.RowIndex].Cells[2].Value.ToString() != "Cancelada")
+            {
+                txtTotalPagar.Text = conexionDb.obtenerVariableDecimal("SELECT SUM([PrecioSugerido] * [Cantidad]) FROM [dbo].[DetalleVenta] WHERE [IdVenta] = "+ Convert.ToInt32(dgvVentas.Rows[e.RowIndex].Cells[0].Value) + " and [Estado] <> 'Cancelada'").ToString();
+            }
+            else
+            {
+                txtTotalPagar.Text = "0.00";
+            }
+            conexionDb.llenarDGV(dgvDetalleVenta, "SELECT dbo.Producto.CodigoProducto AS Codigo, dbo.Producto.NombreProducto AS Producto, dbo.DetalleVenta.PrecioSugerido AS Precio, " +
+                "dbo.DetalleVenta.Cantidad, dbo.DetalleVenta.Estado, \r\n(dbo.DetalleVenta.PrecioSugerido * dbo.DetalleVenta.Cantidad) AS SubTotal " +
+                "FROM     dbo.DetalleVenta INNER JOIN dbo.Producto ON dbo.DetalleVenta.IdProducto = dbo.Producto.IdProducto " +
+                "WHERE dbo.DetalleVenta.IdVenta = " + Convert.ToInt32(dgvVentas.Rows[e.RowIndex].Cells[0].Value));
+            dtpFecha.Value = Convert.ToDateTime(dgvVentas.Rows[e.RowIndex].Cells[1].Value.ToString());
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            PanelVentas.Enabled = true;
+            PanelVentas.Visible = true;
+            PanelDetalleVenta.Visible = false;
+            PanelDetalleVenta.Enabled = false;
+            txtNumVenta.Clear();
+            txtTotalPagar.Clear();
+            dgvDetalleVenta.DataSource = null; 
         }
     }
 }

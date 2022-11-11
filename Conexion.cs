@@ -141,6 +141,30 @@ namespace PulperiaPY
                 return -1;
             }
             finally { Conectar.Close(); }
+        }        //Metodo para obtener variables DECIMAL de la base de datos. (Se envia el comando sql) de donde se quiere obtener la variable [RETORNA -1 SI NO ENCUENTRA UN VALOR]
+        public decimal obtenerVariableDecimal(string instruccion)
+        {
+            try
+            {
+                Conectar.Open();
+                decimal valor = 0;
+                comando = new SqlCommand(instruccion, Conectar);
+                lectorVariables = comando.ExecuteReader();
+                if (lectorVariables.Read())
+                {
+                    valor = Convert.ToDecimal(lectorVariables.GetValue(0));
+                }
+                lectorVariables.Close();
+                Conectar.Close();
+                return valor;
+            }
+            catch (Exception)
+            {
+                Conectar.Close();
+                MessageBox.Show("Error en la conexión");
+                return -1;
+            }
+            finally { Conectar.Close(); }
         }
     }
 }

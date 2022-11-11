@@ -555,11 +555,11 @@ namespace PulperiaPY
             {
                 if (i == 0)
                 {
-                    detalleVenta += "('" + txtNumVenta.Text + "',(SELECT idProducto from [dbo].[Producto] WHERE CodigoProducto = '" + dgvDetalleVenta.Rows[i].Cells[0].Value.ToString() + "'),'" + dgvDetalleVenta.Rows[i].Cells[3].Value.ToString() + "','" + dgvDetalleVenta.Rows[i].Cells[2].Value.ToString() + "','Realizada')";
+                    detalleVenta += "('" + txtNumVenta.Text + "',(SELECT idProducto from [dbo].[Producto] WHERE CodigoProducto = '" + dgvDetalleVenta.Rows[i].Cells[0].Value.ToString() + "'),'" + dgvDetalleVenta.Rows[i].Cells[3].Value.ToString() + "','" + dgvDetalleVenta.Rows[i].Cells[2].Value.ToString() + "','Finalizada')";
                 }
                 else
                 {
-                    detalleVenta += ",('" + txtNumVenta.Text + "',(SELECT idProducto from [dbo].[Producto] WHERE CodigoProducto = '" + dgvDetalleVenta.Rows[i].Cells[0].Value.ToString() + "'),'" + dgvDetalleVenta.Rows[i].Cells[3].Value.ToString() + "','" + dgvDetalleVenta.Rows[i].Cells[2].Value.ToString() + "','Realizada')";
+                    detalleVenta += ",('" + txtNumVenta.Text + "',(SELECT idProducto from [dbo].[Producto] WHERE CodigoProducto = '" + dgvDetalleVenta.Rows[i].Cells[0].Value.ToString() + "'),'" + dgvDetalleVenta.Rows[i].Cells[3].Value.ToString() + "','" + dgvDetalleVenta.Rows[i].Cells[2].Value.ToString() + "','Finalizada')";
 
                 }
             }
@@ -569,7 +569,7 @@ namespace PulperiaPY
                 detalleVenta +
                 ";"))
             {
-                MessageBox.Show("¡Venta Realizada con Exito!", "VENTA FINALIZADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("¡Venta Finalizada con Exito!", "VENTA FINALIZADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -757,6 +757,12 @@ namespace PulperiaPY
             {
                 MessageBox.Show("Debe ingresar el numero de venta a buscar", "Error al buscar venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnVerVentas_Click(object sender, EventArgs e)
+        {
+            VerVentas verVentas = new VerVentas();
+            verVentas.Show();
         }
     }
 }

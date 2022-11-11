@@ -447,6 +447,7 @@
             this.btnVerVentas.TabStop = false;
             this.btnVerVentas.Text = "Ver Ventas";
             this.btnVerVentas.UseVisualStyleBackColor = true;
+            this.btnVerVentas.Click += new System.EventHandler(this.btnVerVentas_Click);
             // 
             // btnCancelarVenta
             // 
