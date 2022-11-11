@@ -20,6 +20,7 @@ namespace PulperiaPY
             InitializeComponent();
             cargarMarcas();
             cargarCategoria();
+            esconder();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -81,6 +82,41 @@ namespace PulperiaPY
             txtPrecio.Clear();
         }
 
+        private void esconder()
+        {
+            lblCategoria.Visible = false;
+            lblMarca.Visible = false;
+            btnAgregaNuevo.Visible = false;
+            txtCategoria.Visible = false;
+            txtMarca.Visible = false;
+            btnCancelarNuevo.Visible=false;
+        }
+
+        private void deshabilitar()
+        {
+            marcacb.Enabled = false;
+            categoriacb.Enabled = false;
+            txtCodigo.Enabled = false;
+            txtNombre.Enabled = false;
+            txtPrecio.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnLimpiar.Enabled = false;
+            btnNM.Enabled = false;
+            btnNC.Enabled = false;
+        }
+
+        private void habilitar()
+        {
+            marcacb.Enabled = true;
+            categoriacb.Enabled = true;
+            txtCodigo.Enabled = true;
+            txtNombre.Enabled = true;
+            txtPrecio.Enabled = true;
+            btnAgregar.Enabled = true;
+            btnLimpiar.Enabled = true;
+            btnNM.Enabled = true;
+            btnNC.Enabled = true;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -109,6 +145,67 @@ namespace PulperiaPY
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            deshabilitar();
+            lblMarca.Visible = true;
+            txtMarca.Visible = true;
+            btnAgregaNuevo.Visible = true;
+            btnCancelarNuevo.Visible = true;    
+        }
+
+        private void btnAgregaNuevo_Click(object sender, EventArgs e)
+        {
+            if (lblMarca.Visible)
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = conexion.connection;
+                    conn.Open();
+                    SqlCommand sqlComm = new SqlCommand("InsertarMarca", conn);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.Parameters.AddWithValue("@nombreMarca", txtMarca.Text);
+                    sqlComm.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Marca agregada con éxito");
+                    esconder();
+                    habilitar();
+                    cargarMarcas();
+                }
+            }else if (lblCategoria.Visible)
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = conexion.connection;
+                    conn.Open();
+                    SqlCommand sqlComm = new SqlCommand("InsertarCategoria", conn);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.Parameters.AddWithValue("@NombreCategoria", txtCategoria.Text);
+                    sqlComm.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Categoria agregada con éxito");
+                    esconder();
+                    habilitar();
+                    cargarCategoria();
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            deshabilitar();
+            lblCategoria.Visible = true;
+            btnAgregaNuevo.Visible = true;
+            txtCategoria.Visible = true;
+            btnCancelarNuevo.Visible = true;    
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            esconder();
+            habilitar();
         }
     }
 }
