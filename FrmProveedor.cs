@@ -189,6 +189,18 @@ namespace PulperiaPY
                     MessageBox.Show("Error al buscar proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else if (txbSearProv.Text != "" && estadoFil == "Todos")
+            {
+                string nombreProov = string.Format(txbSearProv.Text);
+                if (conexionDb.llenarDGV(dgvProveedores, "Execute buscarProveedorAll '" + nombreProov + "'"))
+                {
+                    //Proveedor encontrado
+                }
+                else
+                {
+                    MessageBox.Show("Error al buscar proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             else
             {
                 MessageBox.Show("Ingrese un nombre del proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
