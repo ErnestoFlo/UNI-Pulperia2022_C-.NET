@@ -193,5 +193,46 @@ namespace PulperiaPY
             txtTotalPagar.Clear();
             dgvDetalleVenta.DataSource = null; 
         }
+
+        private void btnReporte_MouseHover(object sender, EventArgs e)
+        {
+            btnReporte.ForeColor = Color.White;
+        }
+
+        private void btnReporte_MouseLeave(object sender, EventArgs e)
+        {
+            btnReporte.ForeColor = Color.FromArgb(32, 43, 76);  
+        }
+
+        private void btnRegresar_MouseHover(object sender, EventArgs e)
+        {
+            btnRegresar.ForeColor = Color.White;
+        }
+
+        private void btnRegresar_MouseLeave(object sender, EventArgs e)
+        {
+            btnRegresar.ForeColor = Color.FromArgb(32, 43, 76);
+
+        }
+
+        private void btnBuscar_MouseHover(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.White;
+        }
+
+        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnVerTodo_MouseHover(object sender, EventArgs e)
+        {
+            btnVerTodo.ForeColor = Color.White;
+        }
+
+        private void btnVerTodo_MouseLeave(object sender, EventArgs e)
+        {
+            btnVerTodo.ForeColor = Color.FromArgb(32, 43, 76);
+        }
     }
 }

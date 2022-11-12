@@ -764,5 +764,92 @@ namespace PulperiaPY
             VerVentas verVentas = new VerVentas();
             verVentas.Show();
         }
+
+
+        // Eventos para dar estilos a los botones de mouseHover y MouseLeave
+        private void btnFinalizarVenta_MouseHover(object sender, EventArgs e)
+        {
+            btnFinalizarVenta.ForeColor = Color.White;
+        }
+
+        private void btnFinalizarVenta_MouseLeave(object sender, EventArgs e)
+        {
+            btnFinalizarVenta.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnAgregarProducto_MouseHover(object sender, EventArgs e)
+        {
+            btnAgregarProducto.ForeColor = Color.White;
+        }
+
+        private void btnAgregarProducto_MouseLeave(object sender, EventArgs e)
+        {
+            btnAgregarProducto.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnBuscar_MouseHover(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.White;
+        }
+
+        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnBuscarVenta_MouseHover(object sender, EventArgs e)
+        {
+            btnBuscarVenta.ForeColor = Color.White;
+        }
+
+        private void btnBuscarVenta_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscarVenta.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnNuevaVenta_MouseHover(object sender, EventArgs e)
+        {
+            btnNuevaVenta.ForeColor = Color.White;
+        }
+
+        private void btnNuevaVenta_MouseLeave(object sender, EventArgs e)
+        {
+            btnNuevaVenta.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnCancelarVenta_MouseHover(object sender, EventArgs e)
+        {
+            btnCancelarVenta.ForeColor = Color.White;
+        }
+
+        private void btnCancelarVenta_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelarVenta.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnEditarVenta_MouseHover(object sender, EventArgs e)
+        {
+            btnEditarVenta.ForeColor = Color.White;
+        }
+
+        private void btnEditarVenta_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditarVenta.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnVerVentas_MouseHover(object sender, EventArgs e)
+        {
+            btnVerVentas.ForeColor = Color.White;
+        }
+
+        private void btnVerVentas_MouseLeave(object sender, EventArgs e)
+        {
+            btnVerVentas.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void lblTipoAccion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
