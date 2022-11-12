@@ -110,6 +110,8 @@ namespace PulperiaPY
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+            Form1 login = new Form1();
+            login.Show();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -155,7 +157,31 @@ namespace PulperiaPY
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            abrirFormulario<Usuario>();
+            formularioPerfil();
         }
+        private void btnPerfil2_Click(object sender, EventArgs e)
+        {
+            formularioPerfil();
+        }
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void formularioPerfil()
+        {
+            PerfilUsuario usuario = new PerfilUsuario();
+            usuario.username = labelUsuario.Text;
+            usuario.TopLevel = false;
+            usuario.FormBorderStyle = FormBorderStyle.None;
+            usuario.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(usuario);
+            panelContenedor.Tag = usuario;
+            usuario.Show();
+            usuario.BringToFront();
+
+        }
+
+
     }
 }

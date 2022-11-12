@@ -43,6 +43,7 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnCerrarSesion2 = new System.Windows.Forms.Button();
             this.panelLateral = new System.Windows.Forms.Panel();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnInventario = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,7 +53,6 @@
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.panelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelArriba.SuspendLayout();
@@ -86,6 +86,7 @@
             this.btnPerfil2.TabIndex = 4;
             this.btnPerfil2.UseVisualStyleBackColor = true;
             this.btnPerfil2.Visible = false;
+            this.btnPerfil2.Click += new System.EventHandler(this.btnPerfil2_Click);
             // 
             // btnPerfil
             // 
@@ -119,11 +120,11 @@
             this.labelUsuario.AutoSize = true;
             this.labelUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsuario.ForeColor = System.Drawing.Color.White;
-            this.labelUsuario.Location = new System.Drawing.Point(59, 92);
+            this.labelUsuario.Location = new System.Drawing.Point(63, 92);
             this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(92, 28);
+            this.labelUsuario.Size = new System.Drawing.Size(84, 28);
             this.labelUsuario.TabIndex = 1;
-            this.labelUsuario.Text = "Empresa";
+            this.labelUsuario.Text = "Usuario";
             // 
             // pictureBox1
             // 
@@ -262,6 +263,24 @@
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(210, 1011);
             this.panelLateral.TabIndex = 1;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Image = global::PulperiaPY.Properties.Resources.carrito_de_supermercado;
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(2, 636);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(210, 70);
+            this.btnReportes.TabIndex = 8;
+            this.btnReportes.Text = "         Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -404,24 +423,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(1471, 1011);
             this.panelContenedor.TabIndex = 2;
             // 
-            // btnReportes
-            // 
-            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Image = global::PulperiaPY.Properties.Resources.carrito_de_supermercado;
-            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(2, 636);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(210, 70);
-            this.btnReportes.TabIndex = 8;
-            this.btnReportes.Text = "         Reportes";
-            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.UseVisualStyleBackColor = true;
-            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -436,6 +437,7 @@
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuPrincipal";
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.panelSuperior.ResumeLayout(false);
             this.panelSuperior.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

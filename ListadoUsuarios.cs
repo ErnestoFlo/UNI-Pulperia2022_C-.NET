@@ -133,7 +133,7 @@ namespace PulperiaPY
             }
             else
             {
-                Usuario editar = new Usuario();
+                usuarioCU editar = new usuarioCU();
                 //igualar variables a las demas delsiguiente formulario
                 editar.txtId.Text = Convert.ToString(idUser);
                 editar.txtusuario.Text = usuario;
@@ -144,16 +144,16 @@ namespace PulperiaPY
                 editar.txttelefono.Text = telefono;
                 editar.operacion = "Editar";
                 editar.Show();
-                this.Hide();
+              
             }
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
         {
-            Usuario agregar = new Usuario();
+            usuarioCU agregar = new usuarioCU();
             agregar.operacion = "Agregar";
             agregar.Show();
-            this.Hide();
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -223,6 +223,47 @@ namespace PulperiaPY
             adapter.Fill(table);
             dgvUsers.DataSource = table;
             conexion.CerrarConexion();
+        }
+
+        private void btnagregar_MouseHover(object sender, EventArgs e)
+        {
+            btnagregar.ForeColor = Color.White;
+        }
+        private void btnEditar_MouseHover(object sender, EventArgs e)
+        {
+            btnEditar.ForeColor = Color.White;
+        }
+        private void btnEliminar_MouseHover(object sender, EventArgs e)
+        {
+            btnEliminar.ForeColor = Color.White;
+        }
+        private void btnBuscar_MouseHover(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.White;
+        }
+        private void btnclear_MouseHover(object sender, EventArgs e)
+        {
+            btnclear.ForeColor = Color.White;
+        }
+        private void btnagregar_MouseLeave(object sender, EventArgs e)
+        {
+            btnagregar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+        private void btnEditar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+        private void btnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEliminar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+        private void btnclear_MouseLeave(object sender, EventArgs e)
+        {
+            btnclear.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.FromArgb(32, 43, 76);
         }
     }
 
