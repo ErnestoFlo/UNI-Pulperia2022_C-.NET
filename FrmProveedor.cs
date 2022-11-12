@@ -276,5 +276,70 @@ namespace PulperiaPY
                 CargarTodosProveedores();
             }
         }
+
+        private void btnAddProv_MouseHover(object sender, EventArgs e)
+        {
+            btnAddProv.ForeColor = Color.White;
+        }
+
+        private void btnAddProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnUpdProv_MouseHover(object sender, EventArgs e)
+        {
+            btnUpdProv.ForeColor = Color.White;
+        }
+
+        private void btnUpdProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnUpdProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnDelProve_MouseHover(object sender, EventArgs e)
+        {
+            btnDelProve.ForeColor = Color.White;
+        }
+
+        private void btnDelProve_MouseLeave(object sender, EventArgs e)
+        {
+            btnDelProve.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnCleProv_MouseHover(object sender, EventArgs e)
+        {
+            btnCleProv.ForeColor = Color.White;
+        }
+
+        private void btnCleProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnCleProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnSearProv_MouseHover(object sender, EventArgs e)
+        {
+            btnSearProv.ForeColor = Color.White;
+        }
+
+        private void btnSearProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnSearProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnReporte_MouseHover(object sender, EventArgs e)
+        {
+            btnReporte.ForeColor = Color.White;
+        }
+
+        private void btnReporte_MouseLeave(object sender, EventArgs e)
+        {
+            btnReporte.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
