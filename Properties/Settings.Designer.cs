@@ -22,5 +22,18 @@ namespace PulperiaPY.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Pe" +
+            "rsist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleAct" +
+            "iveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout" +
+            "=30;")]
+        public string PulperiaHermanosConnectionString {
+            get {
+                return ((string)(this["PulperiaHermanosConnectionString"]));
+            }
+        }
     }
 }
