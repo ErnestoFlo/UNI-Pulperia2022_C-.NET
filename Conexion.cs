@@ -13,7 +13,7 @@ namespace PulperiaPY
     class Conexion
     {
         //String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaHermanos; Integrated Security= True";
-        String connection = "Server=tcp:pulperia.database.windows.net,1433;Initial Catalog=GrupoClinica;Persist Security Info=False;User ID=administrador;Password=Pulperia2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        String connection = "Server=tcp:gestiong1.database.windows.net,1433;Database=pulperiaproyect;User ID=AdminUnicah;Password=Gestiongrup01;Trusted_Connection=False;Encrypt=True;";
         public SqlConnection Conectar = new SqlConnection();
         public Conexion(){
             Conectar.ConnectionString = connection;
@@ -23,7 +23,7 @@ namespace PulperiaPY
         {
             try
             {
-                Conectar.Open();
+                this.Conectar.Open();
                 Console.WriteLine("Conexion Exitosa!");
             }
             catch (Exception e)
