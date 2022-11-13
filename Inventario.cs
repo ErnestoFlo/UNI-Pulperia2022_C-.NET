@@ -194,5 +194,11 @@ namespace PulperiaPY
             Reportes.FrmInventario Reportes = new Reportes.FrmInventario();
             Reportes.ShowDialog();
         }
+
+        private void btnMostrarProducto_Click(object sender, EventArgs e)
+        {
+            Producto producto = new Producto();
+            producto.Show();
+        }
     }
 }

@@ -43,12 +43,12 @@ namespace PulperiaPY
             this.txtBuscarInventario = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnReporte = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnMostrarProducto = new System.Windows.Forms.Button();
             this.btnMostrarMarca = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -233,6 +233,23 @@ namespace PulperiaPY
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
             // 
+            // btnReporte
+            // 
+            this.btnReporte.BackColor = System.Drawing.Color.White;
+            this.btnReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.btnReporte.FlatAppearance.BorderSize = 3;
+            this.btnReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.btnReporte.Location = new System.Drawing.Point(152, 230);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(100, 48);
+            this.btnReporte.TabIndex = 11;
+            this.btnReporte.Text = "Reporte";
+            this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -258,6 +275,7 @@ namespace PulperiaPY
             this.btnMostrarProducto.TabIndex = 15;
             this.btnMostrarProducto.Text = "Productos";
             this.btnMostrarProducto.UseVisualStyleBackColor = false;
+            this.btnMostrarProducto.Click += new System.EventHandler(this.btnMostrarProducto_Click);
             // 
             // btnMostrarMarca
             // 
@@ -287,23 +305,6 @@ namespace PulperiaPY
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navegacion";
-            // 
-            // btnReporte
-            // 
-            this.btnReporte.BackColor = System.Drawing.Color.White;
-            this.btnReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnReporte.FlatAppearance.BorderSize = 3;
-            this.btnReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnReporte.Location = new System.Drawing.Point(152, 230);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(100, 48);
-            this.btnReporte.TabIndex = 11;
-            this.btnReporte.Text = "Reporte";
-            this.btnReporte.UseVisualStyleBackColor = false;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // Inventario
             // 
