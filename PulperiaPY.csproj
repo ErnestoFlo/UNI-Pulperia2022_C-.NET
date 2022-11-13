@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PulperiaPY</RootNamespace>
     <AssemblyName>PulperiaPY</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -87,7 +87,7 @@
     </Compile>
     <Compile Include="marcas.Designer.cs">
       <DependentUpon>marcas.cs</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Producto.cs">
       <SubType>Form</SubType>
     </Compile>
