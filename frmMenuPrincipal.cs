@@ -158,10 +158,26 @@ namespace PulperiaPY
         private void btnPerfil_Click(object sender, EventArgs e)
         {
             formularioPerfil();
+            btnPerfil.BackColor = activo;
+            btnPerfil2.BackColor = inactivo;
+            btnInventario.BackColor = inactivo;
+            btnCompras.BackColor = inactivo;
+            btnProductos.BackColor = inactivo;
+            btnProveedores.BackColor = inactivo;
+            btnUsuarios.BackColor = inactivo;
+            btnVentas.BackColor = inactivo;
         }
         private void btnPerfil2_Click(object sender, EventArgs e)
         {
             formularioPerfil();
+            btnPerfil.BackColor = inactivo;
+            btnPerfil2.BackColor = activo;
+            btnInventario.BackColor = inactivo;
+            btnCompras.BackColor = inactivo;
+            btnProductos.BackColor = inactivo;
+            btnProveedores.BackColor = inactivo;
+            btnUsuarios.BackColor = inactivo;
+            btnVentas.BackColor = inactivo;
         }
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
