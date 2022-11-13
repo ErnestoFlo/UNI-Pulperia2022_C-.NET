@@ -1,4 +1,6 @@
-﻿namespace PulperiaPY
+﻿using System.Windows.Forms;
+
+namespace PulperiaPY
 {
     partial class PerfilUsuario
     {
@@ -11,7 +13,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+       protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -299,5 +301,8 @@
         public System.Windows.Forms.TextBox txtcorreo;
         public System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.Button btnEditar;
+        internal string username;
+
+        public FormBorderStyle FormBorderStyle { get; internal set; }
     }
 }
