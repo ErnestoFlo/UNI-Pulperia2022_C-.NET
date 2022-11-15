@@ -23,7 +23,7 @@ namespace PulperiaPY
         {
             try
             {
-                Conectar.Open();
+                this.Conectar.Open();
                 Console.WriteLine("Conexion Exitosa!");
             }
             catch (Exception e)
