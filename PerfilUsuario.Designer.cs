@@ -301,7 +301,7 @@ namespace PulperiaPY
         public System.Windows.Forms.TextBox txtcorreo;
         public System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.Button btnEditar;
-        internal string username;
+        
 
         public FormBorderStyle FormBorderStyle { get; internal set; }
     }

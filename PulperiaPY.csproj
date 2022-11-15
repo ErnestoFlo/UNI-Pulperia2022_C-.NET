@@ -102,6 +102,9 @@
     <Compile Include="FrmCompra.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmCompra.Designer.cs">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
