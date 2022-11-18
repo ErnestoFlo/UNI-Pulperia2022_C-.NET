@@ -51,79 +51,142 @@ namespace PulperiaPY
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            conexion.AbrirConexion();
-            string filtro = cboxfilter.Text;
-            if(filtro == "idUsuario")
+            if (txtvalorbuscar.Text == "")
             {
-                SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE idUsuario = @valor", conexion.Conectar);
-                cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
-                adapter.SelectCommand = cmd;
-                table.Rows.Clear();
-                adapter.Fill(table);
-                dgvUsers.DataSource = table;
-                conexion.CerrarConexion();
+                MessageBox.Show("Debe llenar los campos solicitados");
+                txtvalorbuscar.Focus();
             }
-            else if (filtro == "username")
+            else
             {
-                SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE username LIKE @valor", conexion.Conectar);
-                cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
-                adapter.SelectCommand = cmd;
-                table.Rows.Clear();
-                adapter.Fill(table);
-                dgvUsers.DataSource = table;
-                conexion.CerrarConexion();
-            }
-            else if (filtro == "nombre")
-            {
-                SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE nombre LIKE @valor", conexion.Conectar);
-                cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
-                adapter.SelectCommand = cmd;
-                table.Rows.Clear();
-                adapter.Fill(table);
-                dgvUsers.DataSource = table;
-                conexion.CerrarConexion();
-            }
-            else if (filtro == "apellido")
+                int temp = 0;
+               
+                string filtro = cboxfilter.Text;
+                if (filtro == "idUsuario")
+                {
+                    if (int.TryParse(txtvalorbuscar.Text, out temp))
+                    {
+                        conexion.AbrirConexion();
+                        SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE idUsuario = @valor", conexion.Conectar);
+                        cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
+                        adapter.SelectCommand = cmd;
+                        table.Rows.Clear();
+                        adapter.Fill(table);
+                        if (table.Rows.Count == 0)
+                        {
+                            limpiar();
+                            MessageBox.Show("No se encontro el usuario solicitado");
+                        }
+                        else
+                        {
+                            dgvUsers.DataSource = table;
+                        }
+                        conexion.CerrarConexion();
+                    }
+                    else
+                    {
+                        MessageBox.Show("debe Ingresar un numero");
+                    }
+                }
+                else if (filtro == "username")
+                {
+                    SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE username LIKE @valor", conexion.Conectar);
+                    cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
+                    adapter.SelectCommand = cmd;
+                    table.Rows.Clear();
+                    adapter.Fill(table);
+                    if (table.Rows.Count == 0)
+                    {
+                        limpiar();
+                        MessageBox.Show("No se encontro el usuario solicitado");
+                    }
+                    else
+                    {
+                        dgvUsers.DataSource = table;
+                    }
+                    conexion.CerrarConexion();
+                }
+                else if (filtro == "nombre")
+                {
+                    SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE nombre LIKE @valor", conexion.Conectar);
+                    cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
+                    adapter.SelectCommand = cmd;
+                    table.Rows.Clear();
+                    adapter.Fill(table);
+                    if (table.Rows.Count == 0)
+                    {
+                        limpiar();
+                        MessageBox.Show("No se encontro el usuario solicitado");
+                    }
+                    else
+                    {
+                        dgvUsers.DataSource = table;
+                    }
+                    conexion.CerrarConexion();
+                }
+                else if (filtro == "apellido")
                 {
                     SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE apellido LIKE @valor", conexion.Conectar);
                     cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
                     adapter.SelectCommand = cmd;
                     table.Rows.Clear();
                     adapter.Fill(table);
-                    dgvUsers.DataSource = table;
+                    if (table.Rows.Count == 0)
+                    {
+                        limpiar();
+                        MessageBox.Show("No se encontro el usuario solicitado");
+                    }
+                    else
+                    {
+                        dgvUsers.DataSource = table;
+                    }
                     conexion.CerrarConexion();
                 }
-            else if (filtro == "correo")
-            {
-                SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE correo LIKE @valor", conexion.Conectar);
-                cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
-                adapter.SelectCommand = cmd;
-                table.Rows.Clear();
-                adapter.Fill(table);
-                dgvUsers.DataSource = table;
-                conexion.CerrarConexion();
-            }
-            else if (filtro == "telefono")
-            {
-                SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE telefono LIKE @valor", conexion.Conectar);
-                cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
-                adapter.SelectCommand = cmd;
-                table.Rows.Clear();
-                adapter.Fill(table);
-                dgvUsers.DataSource = table;
-                conexion.CerrarConexion();
+                else if (filtro == "correo")
+                {
+                    SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE correo LIKE @valor", conexion.Conectar);
+                    cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
+                    adapter.SelectCommand = cmd;
+                    table.Rows.Clear();
+                    adapter.Fill(table);
+                    if (table.Rows.Count == 0)
+                    {
+                        limpiar();
+                        MessageBox.Show("No se encontro el usuario solicitado");
+                    }
+                    else
+                    {
+                        dgvUsers.DataSource = table;
+                    }
+                    conexion.CerrarConexion();
+                }
+                else if (filtro == "telefono")
+                {
+
+                    SqlCommand cmd = new SqlCommand("Select idUsuario, username,nombre, apellido, correo, telefono from Usuarios WHERE telefono LIKE @valor", conexion.Conectar);
+                    cmd.Parameters.AddWithValue("@valor", txtvalorbuscar.Text);
+                    adapter.SelectCommand = cmd;
+                    table.Rows.Clear();
+                    adapter.Fill(table);
+                    if (table.Rows.Count == 0)
+                    {
+                        limpiar();
+                        MessageBox.Show("No se encontro el usuario solicitado");
+                    }
+                    else
+                    {
+                        dgvUsers.DataSource = table;
+                    }
+                    conexion.CerrarConexion();
+
+                }
+
             }
 
         }
 
         private void btnclear_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("exec VerUsuarios", conexion.Conectar);
-            adapter.SelectCommand = cmd;
-            table.Rows.Clear();
-            adapter.Fill(table);
-            dgvUsers.DataSource = table;
-            conexion.CerrarConexion();
+            limpiar();
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -216,6 +279,15 @@ namespace PulperiaPY
         }
 
         private void actualizar()
+        {
+            SqlCommand cmd = new SqlCommand("exec VerUsuarios", conexion.Conectar);
+            adapter.SelectCommand = cmd;
+            table.Rows.Clear();
+            adapter.Fill(table);
+            dgvUsers.DataSource = table;
+            conexion.CerrarConexion();
+        }
+        private void limpiar()
         {
             SqlCommand cmd = new SqlCommand("exec VerUsuarios", conexion.Conectar);
             adapter.SelectCommand = cmd;
