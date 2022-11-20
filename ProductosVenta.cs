@@ -13,6 +13,7 @@ namespace PulperiaPY
 {
     public partial class ProductosVenta : Form
     {
+        // Se instancia la clase de conexion
         Conexion conexionDb = new Conexion();
         public ProductosVenta()
         {
@@ -21,9 +22,11 @@ namespace PulperiaPY
 
         private void ProductosVenta_Load(object sender, EventArgs e)
         {
+            //Se manda a llamar el evento para cargar los productos en el datagridView al cargar el form
             CargarTodosProductos();
             moverForm();
 
+            // Se inicializan las variables globales que se retornaran al form de venta
             clsVariableGlobales.CodigoProductoV = "";
             clsVariableGlobales.NombreProductoV = "";
             clsVariableGlobales.PrecioProductoV = 0;
@@ -65,6 +68,7 @@ namespace PulperiaPY
 
         private void CargarTodosProductos()
         {
+            // Se llama una funcion que se encargara de llenar el datagrid con los datos en la base de datos con la siguiente consulta
             conexionDb.llenarDGV(dgvListaProductos, "SELECT dbo.Producto.codigoProducto AS [Codigo]," +
                 " dbo.Producto.nombreProducto AS [Producto], dbo.Marca.nombreMarca AS [Marca], " +
                 "dbo.Categoria.nombreCategoria AS [Categoria], dbo.Producto.precioSugerido AS Precio, " +
@@ -75,8 +79,10 @@ namespace PulperiaPY
                 "WHERE dbo.Producto.Estado != 0 or dbo.Inventario.CantidadDisponible > 0");
         }
 
+        // Funcion que cargara productos segun el filtro que el usuario decida
         private void CargarProductosCondicion(string Condicion, string CodigoBusqueda)
         {
+            // Según condición elegida en el filtro se establece la condicion que se mandara a sql
             if(Condicion == "Nombre del Producto")
             {
                 Condicion = "nombreProducto";
@@ -94,7 +100,7 @@ namespace PulperiaPY
                 Condicion = "nombreCategoria";
             }
 
-
+            // Se llama la funcion de llenar datagrid con una sentencia sql condicionada
             conexionDb.llenarDGV(dgvListaProductos, "SELECT dbo.Producto.codigoProducto AS [Codigo], " +
                 "dbo.Producto.nombreProducto AS Producto, dbo.Marca.nombreMarca AS [Marca], " +
                 "dbo.Categoria.nombreCategoria AS [Categoria], dbo.Producto.precioSugerido AS Precio, " +
@@ -109,6 +115,7 @@ namespace PulperiaPY
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            // Se validara que este seleccionado un elemento en el combobox y escrito lo que se busacara, posterioremente se cargara el producto según el filtro seleccionada.
             if(cmbFiltroBusqueda.SelectedIndex != -1)
             {
                 if (txtCodigoBusqueda.Text != string.Empty)
@@ -128,11 +135,14 @@ namespace PulperiaPY
 
         private void btnVerTodo_Click(object sender, EventArgs e)
         {
+            //Se limpiaran los campos y se recargara el datagridview
             CargarTodosProductos();
             cmbFiltroBusqueda.SelectedIndex = -1;
             txtCodigoBusqueda.Clear();
         }
 
+        // Al dar doble click sobre un producto este se almacenara de manera global de forma que los campos en
+        // el form de venta se llenen automaticamente y este se cierre al haber seleccionado un producto
         private void dgvListaProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             clsVariableGlobales.CodigoProductoV = dgvListaProductos.Rows[e.RowIndex].Cells[0].Value.ToString();

@@ -15,24 +15,31 @@ namespace PulperiaPY
 {
     public partial class Venta : Form
     {
+        // variable para establecer la cultura en como se muesran los numeros
         CultureInfo culturaHN = new CultureInfo("es-HN");
+        // Instancia clase de conexion
         Conexion conexionDb = new Conexion();
+        // Se establece que accion esta realizando en el form venta
+        // Se inicializa en modo agregar
         string accion = "Agregar";
         string accionVenta = "Nueva Venta";
         DataTable TablaDetalleVentaMod = new DataTable("DetalleVentaMod");
 
+        // Tabla temporal de productos que se eliminan de una venta
         DataTable TablaProductosEliminados = new DataTable("ProductosEliminados");
         DataColumn codigoProductoEliminar = new DataColumn("CodigoProductoEliminar");
         DataColumn nombreProductoEliminar = new DataColumn("ProductoEliminar");
         DataColumn precioProductoEliminar = new DataColumn("PrecioProductoEliminar");
         DataColumn cantidadProductoEliminar = new DataColumn("CantidadProductoEliminar");
 
+        // Tabla temporal de productos que se modifican de una venta
         DataTable TablaProductosNuevosMod = new DataTable("ProductosNuevosMod");
         DataColumn codigoProductoNuevosMod = new DataColumn("CodigoProductoNuevosMod");
         DataColumn nombreProductoNuevosMod = new DataColumn("ProductoNuevosMod");
         DataColumn precioProductoNuevosMod = new DataColumn("PrecioNuevosMod");
         DataColumn cantidadProductoNuevosMod = new DataColumn("CantidadNuevosMod");
 
+        // Tabla temporal de los productos de una venta
         DataTable TablaDetalleVenta = new DataTable("DetalleVenta");
         DataColumn codigoProducto = new DataColumn("Codigo");
         DataColumn nombreProducto = new DataColumn("Producto");
@@ -48,6 +55,7 @@ namespace PulperiaPY
 
         private void Venta_Load(object sender, EventArgs e)
         {
+            // Se inicializan las variables 
             accionVenta = "Nueva Venta";
             lblTipoAccion.Text = accionVenta;
             dtpFecha.Value = DateTime.Now;
@@ -84,6 +92,8 @@ namespace PulperiaPY
             btnFinalizarVenta.Text = "Finalizar Venta";
             btnAgregarProducto.Text = "Agregar Producto";
 
+
+            // Agregar columnas a tablas temporales
             TablaDetalleVenta.Columns.Add(codigoProducto);
             TablaDetalleVenta.Columns.Add(nombreProducto);
             TablaDetalleVenta.Columns.Add(precio);
@@ -105,7 +115,7 @@ namespace PulperiaPY
             dgvDetalleVenta.DataSource = TablaDetalleVenta;
         }
 
-
+        // Validaciones para que solo se ingresen numeros con un solo punto
         private void txtNumVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -153,6 +163,9 @@ namespace PulperiaPY
             }
         }
 
+        // Al ingresar un monto con el que se pagara, se actualizara el cambio de ser necesario
+        // Si el monto con el que se paga es menor al total que se pagara el numero reflejara en color rojo,
+        // caso contrario sera color verde
         private void txtPagaCon_TextChanged(object sender, EventArgs e)
         {
             decimal monto = 0, cambio = 0, cantidadPago = 0;
@@ -191,7 +204,8 @@ namespace PulperiaPY
                 txtCambio.Text = "0.00";
             }
         }
-
+        // Se abrira el form de listar los productos para que se pueda seleccionar uno
+        // Se mandara a llamar una funcion que detecte el cierre de ese form para cargar los datos seleccionados de la lista de productos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             ProductosVenta frm = new ProductosVenta();
@@ -199,6 +213,8 @@ namespace PulperiaPY
             frm.Show();
         }
 
+        // Función que al detectar el cierre del form, ingresa las variables en los respectivos
+        // textbox para poder posteriormente agregar el producto al detalle
         public void ProductosVenta_FormClosing(object sender, FormClosingEventArgs e)
         {
             txtCodProducto.Text = clsVariableGlobales.CodigoProductoV;
@@ -216,20 +232,7 @@ namespace PulperiaPY
 
         }
 
-        private void totalPago()
-        {
-            decimal montoPagar = 0;
-
-
-            for (int i = 0; i < dgvDetalleVenta.Rows.Count; i++)
-            {
-                montoPagar += Convert.ToDecimal(dgvDetalleVenta.Rows[i].Cells["SubTotal"].Value);
-            }
-
-            txtTotalPagar.Text = montoPagar.ToString("N2", culturaHN);
-
-        }
-
+        // Función que se encargara de agregar en el detalle de venta dependiendo el datatable al que se llenara
         private void AgregarProductoAlDetalle(DataTable TablaDatos)
         {
             bool existe;
@@ -285,6 +288,7 @@ namespace PulperiaPY
 
         }
 
+        // Funcion que actualizara el detalleVenta dependiendo el Datatable 
         private void ActualizarProductoDetalle(DataTable tablaDatos)
         {
             foreach (DataRow Row in tablaDatos.Rows)
@@ -301,7 +305,7 @@ namespace PulperiaPY
             }
             ActualizarTotalPagar();
         }
-
+        // Se actualiza el total a pagar, recorriendo todos los productos en detalleventa
         private void ActualizarTotalPagar()
         {
             Decimal totalPagar = 0;
@@ -312,12 +316,15 @@ namespace PulperiaPY
             }
             txtTotalPagar.Text = totalPagar.ToString();
         }
-
+        // Al dar click en el boton de Agregar Producto se llamara una Funcion dependiendo el estado de la acción
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
+            // Se valida que la información del producto este completa
             if (txtCodProducto.Text != string.Empty && txtNombreProducto.Text != string.Empty && txtPrecio.Text != string.Empty 
                 && txtStock.Text != string.Empty)
             {
+                // Si la acción es agregar se llamara a la funcion de agregar el producto al detalle
+                // Caso contrario será a la función de actualizar detalle
                 if (accion == "Agregar")
                 {
                     if(nudCantidad.Value <= Convert.ToInt32(txtStock.Text))
@@ -362,6 +369,7 @@ namespace PulperiaPY
             }
         }
    
+        // Se reinicia el numero de venta Cada que se realizar una nueva venta
         private void reiniciarNumVenta()
         {
             int NumVenta;
@@ -371,6 +379,7 @@ namespace PulperiaPY
 
         }
 
+        // Función para limpiar los textbox dependiendo el control en el que se encuentren
         public void limpiarTextBox(Control cont)
         {
             foreach (Control control in cont.Controls)
@@ -382,6 +391,7 @@ namespace PulperiaPY
             }
         }
 
+        // Función para limpiar todos los campos y reiniciar todo.
         private void limpiarVenta()
         {
             limpiarTextBox(gbInformacionVenta);
@@ -401,6 +411,7 @@ namespace PulperiaPY
 
         }
 
+        // Función que nos retorna el stock del producto en la base de datos
         private int SeleccionarStockProducto()
         {
             return conexionDb.obtenerVariableEntera("SELECT dbo.Inventario.CantidadDisponible AS [En Stock] " +
@@ -409,10 +420,16 @@ namespace PulperiaPY
                 "Where dbo.Producto.CodigoProducto = "+ txtCodProducto.Text +";");
         }
 
+
         private void dgvDetalleVenta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Si la columna es la numero 5 entonces es el boton de eliminar
+            // Caso contrario es porque se actualizara los datos del producto en el detalle por lo que se llenan los campos del producto
             if(e.ColumnIndex == 5)
             {
+                // Si la acción es una nueva venta, entonces simplemente se eliminara el producto del datagridview
+                // Caso contrario el producto eliminado se guardara en la tabla temporal TablaProductosEliminados
+                // Y dicho producto se borra de la tabla temporal TablaDetalleVentaMod
                 if (accionVenta == "Nueva Venta")
                 {
                     TablaDetalleVenta.Rows.RemoveAt(dgvDetalleVenta.CurrentRow.Index);
@@ -446,6 +463,8 @@ namespace PulperiaPY
             }
         }
 
+        // Funciones que habiliaran ciertos controles y condiciones segun el boton que se presiones
+        // btnNuevaVenta, btnEditarVenta, btnCancelarVenta
         private void btnNuevaVenta_Click(object sender, EventArgs e)
         {
             accionVenta = "Nueva Venta";
@@ -546,11 +565,15 @@ namespace PulperiaPY
             //Cambio texto Finalizar Venta
             btnFinalizarVenta.Text = "Cancelar Venta";
         }
+
+        // Función que guardara todos los datos del detalle y la venta dentro de la base de datos
         private void FinalizarNuevaVenta()
         {
-            string fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
+            string fecha = dtpFecha.Value.ToString("yyyy-MM-dd"); // Fecha actual
             int TotalProductosDetalle = dgvDetalleVenta.Rows.Count;
             string detalleVenta = "";
+
+            // Se guarda en una cadena todos los productos que se agregaran a la base de datos
             for (int i = 0; TotalProductosDetalle > i; i++)
             {
                 if (i == 0)
@@ -563,6 +586,7 @@ namespace PulperiaPY
 
                 }
             }
+            // Se llama la funcion en la clase de conexion para guardar los datos de la venta.
             if (conexionDb.ejecutarComandoSQL("INSERT INTO [dbo].[Venta]([FechaVenta],[Estado]) VALUES('" + fecha + "','Finalizada'); " +
                 "INSERT INTO [dbo].[DetalleVenta]([IdVenta],[IdProducto],[Cantidad],[PrecioSugerido],[Estado])" +
                 " VALUES" +
@@ -576,6 +600,8 @@ namespace PulperiaPY
                 MessageBox.Show("¡Error al Realizar la Venta!", "ERROR EN LA VENTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Función que actualizara la venta en la base de datos
         private void ActualizarVenta()
         {
             
@@ -583,6 +609,7 @@ namespace PulperiaPY
             string productosEliminados = "";
             string productosNuevos = "";
 
+            // Se filtran los productos nuevos que se agregaron en caso de existir ya en la tabla temporal de los productos modificados
             foreach (DataRow rowProdsMod in TablaDetalleVentaMod.Rows)
             {
                 foreach (DataRow rowProdsNuevos in TablaProductosNuevosMod.Rows)
@@ -594,11 +621,13 @@ namespace PulperiaPY
                 }
             }
 
+            // Se guarda en una cadena los productos que se actualizaron
             foreach(DataRow row in TablaDetalleVentaMod.Rows)
             {
                 detalleVenta += "UPDATE [dbo].[DetalleVenta] SET [PrecioSugerido] = " + Convert.ToDecimal(row[2]) + ", [Cantidad] = "+ Convert.ToInt32(row[3]) +", [Estado] = 'Editada' WHERE ([IdVenta] = " + Convert.ToInt32(txtNumVenta.Text) + ") AND (SELECT [IdProducto] FROM [dbo].[Producto] WHERE [CodigoProducto] = '" + row[0] + "') = [IdProducto] AND [dbo].[DetalleVenta].[Estado] <> 'Cancelada'";
             }
 
+            // En caso de que se hayan eliminado productos tambien se registraran por lo tanto se guardan en una cadena 
             if (TablaProductosEliminados.Rows.Count != 0)
             {
                 foreach (DataRow row in TablaProductosEliminados.Rows)
@@ -611,6 +640,7 @@ namespace PulperiaPY
                 productosEliminados = "";
             }
 
+            // Si se agregaron nuevos productos entonces se registran y se guardaran dentro de la base de datos
             if (TablaProductosNuevosMod.Rows.Count != 0)
             {
                 foreach (DataRow row in TablaProductosNuevosMod.Rows)
@@ -623,6 +653,7 @@ namespace PulperiaPY
                 productosNuevos += "";
             }
 
+            // Se llama la funcion en la clase conexión que se encargara de actualizar los datos de la venta
             if (conexionDb.ejecutarComandoSQL("UPDATE [dbo].[Venta] SET [Estado] = 'Editada' WHERE [IdVenta] = " + Convert.ToInt32(txtNumVenta.Text) + "; " +
                 detalleVenta + productosEliminados + productosNuevos))
             {
@@ -633,6 +664,8 @@ namespace PulperiaPY
                 MessageBox.Show("¡Error al Actalizar la Venta!", "ERROR EN LA VENTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Función que cancelara la venta solo usando el numero de venta
         private void CancelarVenta()
         {
             if (conexionDb.ejecutarComandoSQL("UPDATE [dbo].[Venta] SET [Estado] = 'Cancelada' WHERE [IdVenta] = " + Convert.ToInt32(txtNumVenta.Text) + "; " +
@@ -651,6 +684,7 @@ namespace PulperiaPY
 
         private void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
+            // Según la acción de venta seleccionada, se agregara una nueva venta, actualizara una venta o cancelara una venta.
             switch (accionVenta)
             {
                 case "Nueva Venta":
@@ -722,6 +756,8 @@ namespace PulperiaPY
 
         private void btnBuscarVenta_Click(object sender, EventArgs e)
         {
+            // Se buscara la venta cuando se haya escrito un numero de venta,
+            // Se validara que exista dentro de la base de datos, caso contrario no se cargara nada.
             if (txtNumVenta.Text != String.Empty)
             {
                 if (conexionDb.obtenerVariableEntera("Select [IdVenta] from [dbo].[Venta] Where [IdVenta] = "+ Convert.ToInt32(txtNumVenta.Text)) > 0)
@@ -759,6 +795,7 @@ namespace PulperiaPY
             }
         }
 
+        // boton de ver ventas que abrira un nuevo form donde se podra ver de una manera mas detallada todas las ventas.
         private void btnVerVentas_Click(object sender, EventArgs e)
         {
             VerVentas verVentas = new VerVentas();

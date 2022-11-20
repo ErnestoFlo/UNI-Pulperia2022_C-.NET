@@ -20,6 +20,8 @@ namespace PulperiaPY
         }
         private void VerVentas_Load(object sender, EventArgs e)
         {
+            // Al cargarse el form se cargara todas las ventas
+            // y solo se mostrara el la vista en la que se vea unicamente el listado de las ventas
             CargarTodasLasVentas();
             dtpGetDate.Value = DateTime.Now;
             txtCodigoBusqueda.Visible = true;
@@ -30,6 +32,7 @@ namespace PulperiaPY
             dtpGetDate.Visible = false;
 
         }
+        // Mediante una funcion de la clase de conexion se llenara el datagridview de ventas
         private void CargarTodasLasVentas()
         {
             conexionDb.llenarDGV(dgvVentas, "SELECT dbo.Venta.IdVenta AS [Numero Venta], dbo.Venta.FechaVenta AS [Fecha Venta], " +
@@ -37,8 +40,10 @@ namespace PulperiaPY
                 "FROM dbo.Venta " +
                 "GROUP BY dbo.Venta.IdVenta, dbo.Venta.FechaVenta, dbo.Venta.Estado");
         }        
+        // Mediante una funcion de la clase de conexion se llenara el datagridview segun la condicion que se seleccione
         private void CargarVentaCondicion(string Condicion, string CodigoBusqueda)
         {
+            // Segun el filtro seleccionado en el combobox se tomara la condicion
             if (Condicion == "Fecha de Venta")
             {
                 Condicion = "FechaVenta";
@@ -52,6 +57,7 @@ namespace PulperiaPY
                 Condicion = "IdVenta";
             }
 
+            // Se llena el datagrid con la condición y el codigo de busqueda
             conexionDb.llenarDGV(dgvVentas, "SELECT dbo.Venta.IdVenta AS [Numero Venta], dbo.Venta.FechaVenta AS [Fecha Venta], " +
                 "dbo.Venta.Estado FROM dbo.Venta " +
                 "WHERE dbo.Venta."+Condicion+" = '"+CodigoBusqueda+"' " +
@@ -61,6 +67,8 @@ namespace PulperiaPY
         }
         private void cmbFiltroBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Se validara que el combobox tenga un elemento seleccionado
+            // al haber un cambio los campos del filtro cambiaran acorde al filtro seleccionado
             if (cmbFiltroBusqueda.SelectedItem != null)
             {
 
@@ -100,6 +108,7 @@ namespace PulperiaPY
 
         private void btnVerTodo_Click(object sender, EventArgs e)
         {
+            // Se recargaran las ventas y se reiniciaran los campos
             CargarTodasLasVentas();
             cmbFiltroBusqueda.SelectedIndex = -1;
             cmbEstadoVenta.SelectedIndex = -1;
@@ -115,6 +124,7 @@ namespace PulperiaPY
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            // Segun el filtro seleccionado se mandara a llamar la funcion de cargarventa con condicion de una manera diferente.
             if (cmbFiltroBusqueda.SelectedIndex != -1)
             {
                 switch (cmbFiltroBusqueda.SelectedItem)
@@ -159,9 +169,10 @@ namespace PulperiaPY
             }
         }
 
+        // Al hacer doble click sobre una venta el panel donde se listan todas las ventas se ocultara
+        //  y se mostrara el panel donde estara el detalle de venta de la venta a la que se le dio doble click
         private void dgvVentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             PanelVentas.Enabled = false;
             PanelVentas.Visible= false;
             PanelDetalleVenta.Visible = true;
