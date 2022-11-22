@@ -43,7 +43,6 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnCerrarSesion2 = new System.Windows.Forms.Button();
             this.panelLateral = new System.Windows.Forms.Panel();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnInventario = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -247,7 +246,6 @@
             // panelLateral
             // 
             this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.panelLateral.Controls.Add(this.btnReportes);
             this.panelLateral.Controls.Add(this.panel2);
             this.panelLateral.Controls.Add(this.btnInventario);
             this.panelLateral.Controls.Add(this.panel1);
@@ -263,24 +261,6 @@
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(210, 1011);
             this.panelLateral.TabIndex = 1;
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Image = global::PulperiaPY.Properties.Resources.carrito_de_supermercado;
-            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(2, 636);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(210, 70);
-            this.btnReportes.TabIndex = 8;
-            this.btnReportes.Text = "         Reportes";
-            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -474,6 +454,5 @@
         private System.Windows.Forms.Button btnMaximizar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Button btnReportes;
     }
 }

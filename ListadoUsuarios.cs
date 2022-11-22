@@ -84,7 +84,7 @@ namespace PulperiaPY
                     }
                     else
                     {
-                        MessageBox.Show("debe Ingresar un numero");
+                        MessageBox.Show("El ID del usuario debe ser un numero");
                     }
                 }
                 else if (filtro == "username")
@@ -187,12 +187,13 @@ namespace PulperiaPY
         private void btnclear_Click(object sender, EventArgs e)
         {
             limpiar();
+            txtvalorbuscar.Text = "";
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (idUser == 0)
             {
-                MessageBox.Show("Debe seleccionar un usuario primero");
+                MessageBox.Show("Debe seleccionar un usuario de la tabla");
             }
             else
             {
