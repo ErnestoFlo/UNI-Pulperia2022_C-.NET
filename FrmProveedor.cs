@@ -29,6 +29,7 @@ namespace PulperiaPY
         private void CargarTodosProveedores()
         {
             conexionDb.llenarDGV(dgvProveedores, "Execute verTodosProveedores");
+            cmbFiltroProv.SelectedIndex = 2;
         }
         private void limpiarSel()
         {
@@ -53,7 +54,7 @@ namespace PulperiaPY
         private void FrmProveedor_Load(object sender, EventArgs e)
         {
             cmbEstProv.SelectedIndex = 0;
-            cmbFiltroProv.SelectedIndex = 0;
+            cmbFiltroProv.SelectedIndex = 2;
         }
 
         private void btnAddProv_Click(object sender, EventArgs e)
@@ -80,7 +81,7 @@ namespace PulperiaPY
                     if (conexionDb.ejecutarComandoSQL("Execute crearProveedor '" + nombreProov + "' , '" + telefono + "' , '" + direccion + "', '" + estadoBit + "' "))
                     {
                         MessageBox.Show("Proveedor insertado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarProveedores();
+                        CargarTodosProveedores();
                     }
                     else
                     {
@@ -146,7 +147,7 @@ namespace PulperiaPY
                     if (conexionDb.ejecutarComandoSQL("Execute actualizarProveedor '" + idProv + "' , '" + nombreProov + "' , '" + telefono + "' , '" + direccion + "', '" + estadoBit + "' "))
                     {
                         MessageBox.Show("Proveedor actualizado correctamente", "Actualizado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarProveedores();
+                        CargarTodosProveedores();
                     }
                     else
                     {
@@ -235,21 +236,33 @@ namespace PulperiaPY
 
             if (txbIdProv.Text != "")
             {
-                int idProv = Int32.Parse(txbIdProv.Text);
-                // Displays the MessageBox.
-                result = MessageBox.Show(message, caption, buttons);
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                if(cmbEstProv.SelectedIndex != 2)
                 {
-                    if (conexionDb.ejecutarComandoSQL("Execute eliminarProveedor '" + idProv + "'"))
+                    int idProv = Int32.Parse(txbIdProv.Text);
+                    // Displays the MessageBox.
+                    result = MessageBox.Show(message, caption, buttons);
+                    if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        MessageBox.Show("Proveedor eliminado correctamente", "Eliminado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarProveedores();
+                        if(estadoBit != 0)
+                        {
+                            if (conexionDb.ejecutarComandoSQL("Execute eliminarProveedor '" + idProv + "'"))
+                            {
+                                MessageBox.Show("Proveedor eliminado correctamente", "Eliminado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                CargarTodosProveedores();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar proveedor", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            limpiarSel();
+                        }
+                    
                     }
-                    else
-                    {
-                        MessageBox.Show("Error al eliminar proveedor", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    limpiarSel();
+
+                }
+                else
+                {
+                    MessageBox.Show("El proveedor ya se encuentra eliminado", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -327,18 +340,42 @@ namespace PulperiaPY
             btnSearProv.ForeColor = Color.FromArgb(32, 43, 76);
         }
 
-        private void btnReporte_MouseHover(object sender, EventArgs e)
-        {
-            btnReporte.ForeColor = Color.White;
-        }
-
-        private void btnReporte_MouseLeave(object sender, EventArgs e)
-        {
-            btnReporte.ForeColor = Color.FromArgb(32, 43, 76);
-        }
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void txbTelProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbNameProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbDirProv_KeyPress(object sender, KeyPressEventArgs e)
+        {  
 
         }
     }

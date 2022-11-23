@@ -15,7 +15,7 @@ namespace PulperiaPY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmReporteProveedor());
+            Application.Run(new FrmProveedor());
         }
     }
 }

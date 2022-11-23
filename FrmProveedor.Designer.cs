@@ -37,7 +37,6 @@ namespace PulperiaPY
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddProv = new System.Windows.Forms.Button();
             this.btnUpdProv = new System.Windows.Forms.Button();
-            this.btnReporte = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
             this.btnSearProv = new System.Windows.Forms.Button();
             this.txbSearProv = new System.Windows.Forms.TextBox();
@@ -72,6 +71,7 @@ namespace PulperiaPY
             this.txbNameProv.Name = "txbNameProv";
             this.txbNameProv.Size = new System.Drawing.Size(258, 29);
             this.txbNameProv.TabIndex = 1;
+            this.txbNameProv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNameProv_KeyPress);
             // 
             // txbTelProv
             // 
@@ -81,6 +81,7 @@ namespace PulperiaPY
             this.txbTelProv.Name = "txbTelProv";
             this.txbTelProv.Size = new System.Drawing.Size(153, 29);
             this.txbTelProv.TabIndex = 3;
+            this.txbTelProv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTelProv_KeyPress);
             // 
             // label2
             // 
@@ -102,6 +103,7 @@ namespace PulperiaPY
             this.txbDirProv.Name = "txbDirProv";
             this.txbDirProv.Size = new System.Drawing.Size(360, 137);
             this.txbDirProv.TabIndex = 5;
+            this.txbDirProv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDirProv_KeyPress);
             // 
             // label3
             // 
@@ -150,25 +152,6 @@ namespace PulperiaPY
             this.btnUpdProv.Click += new System.EventHandler(this.btnUpdProv_Click);
             this.btnUpdProv.MouseLeave += new System.EventHandler(this.btnUpdProv_MouseLeave);
             this.btnUpdProv.MouseHover += new System.EventHandler(this.btnUpdProv_MouseHover);
-            // 
-            // btnReporte
-            // 
-            this.btnReporte.BackColor = System.Drawing.Color.White;
-            this.btnReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnReporte.FlatAppearance.BorderSize = 3;
-            this.btnReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnReporte.Location = new System.Drawing.Point(1311, 729);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(131, 48);
-            this.btnReporte.TabIndex = 9;
-            this.btnReporte.Text = "Reporte";
-            this.btnReporte.UseVisualStyleBackColor = false;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
-            this.btnReporte.MouseLeave += new System.EventHandler(this.btnReporte_MouseLeave);
-            this.btnReporte.MouseHover += new System.EventHandler(this.btnReporte_MouseHover);
             // 
             // dgvProveedores
             // 
@@ -233,7 +216,7 @@ namespace PulperiaPY
             this.btnCleProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCleProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCleProv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnCleProv.Location = new System.Drawing.Point(462, 219);
+            this.btnCleProv.Location = new System.Drawing.Point(454, 211);
             this.btnCleProv.Name = "btnCleProv";
             this.btnCleProv.Size = new System.Drawing.Size(92, 34);
             this.btnCleProv.TabIndex = 15;
@@ -346,7 +329,6 @@ namespace PulperiaPY
             this.Controls.Add(this.txbSearProv);
             this.Controls.Add(this.btnSearProv);
             this.Controls.Add(this.dgvProveedores);
-            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.txbDirProv);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbTelProv);
@@ -375,7 +357,6 @@ namespace PulperiaPY
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddProv;
         private System.Windows.Forms.Button btnUpdProv;
-        private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.DataGridView dgvProveedores;
         private System.Windows.Forms.Button btnSearProv;
         private System.Windows.Forms.TextBox txbSearProv;

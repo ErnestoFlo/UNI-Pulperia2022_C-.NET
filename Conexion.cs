@@ -12,8 +12,8 @@ namespace PulperiaPY
 {
     class Conexion
     {
-        //String connection = "Data Source=DESKTOP-NQIVP0D; Initial Catalog = DBPulperia; Integrated Security= True";
-        String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        String connection = "Data Source=DESKTOP-NQIVP0D; Initial Catalog = pulperiaproyect; Integrated Security= True";
+        //String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         public SqlConnection Conectar = new SqlConnection();
         public SqlDataAdapter adaptador;
