@@ -57,7 +57,7 @@ namespace PulperiaPY
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.label1.Location = new System.Drawing.Point(79, 92);
+            this.label1.Location = new System.Drawing.Point(30, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 21);
             this.label1.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace PulperiaPY
             // 
             this.txbNameProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbNameProv.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbNameProv.Location = new System.Drawing.Point(83, 116);
+            this.txbNameProv.Location = new System.Drawing.Point(34, 104);
             this.txbNameProv.Name = "txbNameProv";
             this.txbNameProv.Size = new System.Drawing.Size(258, 29);
             this.txbNameProv.TabIndex = 1;
@@ -77,7 +77,7 @@ namespace PulperiaPY
             // 
             this.txbTelProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTelProv.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbTelProv.Location = new System.Drawing.Point(401, 116);
+            this.txbTelProv.Location = new System.Drawing.Point(35, 177);
             this.txbTelProv.Name = "txbTelProv";
             this.txbTelProv.Size = new System.Drawing.Size(153, 29);
             this.txbTelProv.TabIndex = 3;
@@ -88,7 +88,7 @@ namespace PulperiaPY
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.label2.Location = new System.Drawing.Point(397, 92);
+            this.label2.Location = new System.Drawing.Point(31, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 21);
             this.label2.TabIndex = 2;
@@ -98,7 +98,7 @@ namespace PulperiaPY
             // 
             this.txbDirProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbDirProv.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbDirProv.Location = new System.Drawing.Point(612, 116);
+            this.txbDirProv.Location = new System.Drawing.Point(336, 104);
             this.txbDirProv.Multiline = true;
             this.txbDirProv.Name = "txbDirProv";
             this.txbDirProv.Size = new System.Drawing.Size(360, 137);
@@ -110,7 +110,7 @@ namespace PulperiaPY
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.label3.Location = new System.Drawing.Point(608, 92);
+            this.label3.Location = new System.Drawing.Point(332, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 21);
             this.label3.TabIndex = 4;
@@ -125,7 +125,7 @@ namespace PulperiaPY
             this.btnAddProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnAddProv.Location = new System.Drawing.Point(132, 51);
+            this.btnAddProv.Location = new System.Drawing.Point(100, 48);
             this.btnAddProv.Name = "btnAddProv";
             this.btnAddProv.Size = new System.Drawing.Size(131, 48);
             this.btnAddProv.TabIndex = 6;
@@ -143,7 +143,7 @@ namespace PulperiaPY
             this.btnUpdProv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.btnUpdProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdProv.Location = new System.Drawing.Point(132, 135);
+            this.btnUpdProv.Location = new System.Drawing.Point(100, 132);
             this.btnUpdProv.Name = "btnUpdProv";
             this.btnUpdProv.Size = new System.Drawing.Size(131, 48);
             this.btnUpdProv.TabIndex = 7;
@@ -160,11 +160,11 @@ namespace PulperiaPY
             this.dgvProveedores.AllowUserToResizeRows = false;
             this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedores.Location = new System.Drawing.Point(50, 514);
+            this.dgvProveedores.Location = new System.Drawing.Point(29, 407);
             this.dgvProveedores.MultiSelect = false;
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.ReadOnly = true;
-            this.dgvProveedores.Size = new System.Drawing.Size(1200, 456);
+            this.dgvProveedores.Size = new System.Drawing.Size(1022, 387);
             this.dgvProveedores.TabIndex = 10;
             this.dgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentClick);
             // 
@@ -177,7 +177,7 @@ namespace PulperiaPY
             this.btnSearProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearProv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnSearProv.Location = new System.Drawing.Point(1139, 463);
+            this.btnSearProv.Location = new System.Drawing.Point(959, 360);
             this.btnSearProv.Name = "btnSearProv";
             this.btnSearProv.Size = new System.Drawing.Size(92, 34);
             this.btnSearProv.TabIndex = 11;
@@ -191,7 +191,7 @@ namespace PulperiaPY
             // 
             this.txbSearProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSearProv.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbSearProv.Location = new System.Drawing.Point(781, 465);
+            this.txbSearProv.Location = new System.Drawing.Point(601, 362);
             this.txbSearProv.Name = "txbSearProv";
             this.txbSearProv.Size = new System.Drawing.Size(337, 29);
             this.txbSearProv.TabIndex = 12;
@@ -216,7 +216,7 @@ namespace PulperiaPY
             this.btnCleProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCleProv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCleProv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnCleProv.Location = new System.Drawing.Point(454, 211);
+            this.btnCleProv.Location = new System.Drawing.Point(227, 172);
             this.btnCleProv.Name = "btnCleProv";
             this.btnCleProv.Size = new System.Drawing.Size(92, 34);
             this.btnCleProv.TabIndex = 15;
@@ -231,7 +231,7 @@ namespace PulperiaPY
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.label4.Location = new System.Drawing.Point(79, 187);
+            this.label4.Location = new System.Drawing.Point(31, 223);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 21);
             this.label4.TabIndex = 16;
@@ -247,7 +247,7 @@ namespace PulperiaPY
             "Seleccione",
             "Activo",
             "Inactivo"});
-            this.cmbEstProv.Location = new System.Drawing.Point(83, 211);
+            this.cmbEstProv.Location = new System.Drawing.Point(35, 247);
             this.cmbEstProv.Name = "cmbEstProv";
             this.cmbEstProv.Size = new System.Drawing.Size(117, 29);
             this.cmbEstProv.TabIndex = 17;
@@ -261,7 +261,7 @@ namespace PulperiaPY
             this.btnDelProve.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.btnDelProve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelProve.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelProve.Location = new System.Drawing.Point(132, 213);
+            this.btnDelProve.Location = new System.Drawing.Point(100, 210);
             this.btnDelProve.Name = "btnDelProve";
             this.btnDelProve.Size = new System.Drawing.Size(131, 48);
             this.btnDelProve.TabIndex = 19;
@@ -281,7 +281,7 @@ namespace PulperiaPY
             "Activos",
             "Inactivos",
             "Todos"});
-            this.cmbFiltroProv.Location = new System.Drawing.Point(222, 473);
+            this.cmbFiltroProv.Location = new System.Drawing.Point(224, 364);
             this.cmbFiltroProv.Name = "cmbFiltroProv";
             this.cmbFiltroProv.Size = new System.Drawing.Size(123, 29);
             this.cmbFiltroProv.TabIndex = 20;
@@ -292,7 +292,7 @@ namespace PulperiaPY
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.label5.Location = new System.Drawing.Point(46, 476);
+            this.label5.Location = new System.Drawing.Point(48, 367);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(170, 21);
             this.label5.TabIndex = 21;
@@ -306,9 +306,9 @@ namespace PulperiaPY
             this.groupBox1.Controls.Add(this.btnDelProve);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.groupBox1.Location = new System.Drawing.Point(1028, 41);
+            this.groupBox1.Location = new System.Drawing.Point(720, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(380, 324);
+            this.groupBox1.Size = new System.Drawing.Size(331, 300);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acciones";
@@ -318,7 +318,7 @@ namespace PulperiaPY
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1471, 1011);
+            this.ClientSize = new System.Drawing.Size(1103, 821);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbFiltroProv);
