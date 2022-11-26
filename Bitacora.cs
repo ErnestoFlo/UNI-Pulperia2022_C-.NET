@@ -110,8 +110,6 @@ namespace PulperiaPY
                 Console.WriteLine(ex);
                 dvLog.RowFilter = "";
             }
-
-
         }
     }
 }
