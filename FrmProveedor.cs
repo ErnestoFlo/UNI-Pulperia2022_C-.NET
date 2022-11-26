@@ -193,11 +193,7 @@ namespace PulperiaPY
             else if (txbSearProv.Text != "" && estadoFil == "Todos")
             {
                 string nombreProov = string.Format(txbSearProv.Text);
-                if (conexionDb.llenarDGV(dgvProveedores, "Execute buscarProveedorAll '" + nombreProov + "'"))
-                {
-                    //Proveedor encontrado
-                }
-                else
+                if (!conexionDb.llenarDGV(dgvProveedores, "Execute buscarProveedorAll '" + nombreProov + "'"))
                 {
                     MessageBox.Show("Error al buscar proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
