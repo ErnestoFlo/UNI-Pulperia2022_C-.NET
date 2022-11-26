@@ -37,6 +37,8 @@
             this.cmbUser = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +60,13 @@
             this.dgvBitacora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBitacora.GridColor = System.Drawing.Color.White;
-            this.dgvBitacora.Location = new System.Drawing.Point(11, 94);
-            this.dgvBitacora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvBitacora.Location = new System.Drawing.Point(17, 140);
+            this.dgvBitacora.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBitacora.Name = "dgvBitacora";
             this.dgvBitacora.ReadOnly = true;
             this.dgvBitacora.RowHeadersWidth = 51;
             this.dgvBitacora.RowTemplate.Height = 24;
-            this.dgvBitacora.Size = new System.Drawing.Size(626, 217);
+            this.dgvBitacora.Size = new System.Drawing.Size(619, 303);
             this.dgvBitacora.TabIndex = 0;
             this.dgvBitacora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -73,8 +75,8 @@
             this.btnUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdates.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnUpdates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnUpdates.Location = new System.Drawing.Point(11, 328);
-            this.btnUpdates.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdates.Location = new System.Drawing.Point(17, 457);
+            this.btnUpdates.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdates.Name = "btnUpdates";
             this.btnUpdates.Size = new System.Drawing.Size(145, 54);
             this.btnUpdates.TabIndex = 1;
@@ -87,7 +89,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnClear.Location = new System.Drawing.Point(492, 328);
+            this.btnClear.Location = new System.Drawing.Point(492, 457);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(145, 54);
@@ -101,7 +103,7 @@
             this.btnDeletes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletes.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnDeletes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnDeletes.Location = new System.Drawing.Point(166, 328);
+            this.btnDeletes.Location = new System.Drawing.Point(180, 457);
             this.btnDeletes.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeletes.Name = "btnDeletes";
             this.btnDeletes.Size = new System.Drawing.Size(145, 54);
@@ -115,7 +117,7 @@
             this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsert.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnInsert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnInsert.Location = new System.Drawing.Point(324, 328);
+            this.btnInsert.Location = new System.Drawing.Point(337, 457);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(2);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(145, 54);
@@ -158,12 +160,33 @@
             this.label2.Text = "Bitacora";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(358, 96);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(278, 32);
+            this.txtSearch.TabIndex = 7;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(284, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Buscar";
+            // 
             // Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(648, 437);
+            this.ClientSize = new System.Drawing.Size(654, 522);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbUser);
@@ -173,7 +196,7 @@
             this.Controls.Add(this.btnUpdates);
             this.Controls.Add(this.dgvBitacora);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Bitacora";
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.Bitacora_Load);
@@ -193,5 +216,7 @@
         private System.Windows.Forms.ComboBox cmbUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label3;
     }
 }
