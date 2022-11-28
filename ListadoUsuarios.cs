@@ -94,7 +94,7 @@ namespace PulperiaPY
                     adapter.SelectCommand = cmd;
                     table.Rows.Clear();
                     adapter.Fill(table);
-                    if (table.Rows.Count == 0)
+                        if (table.Rows.Count == 0)
                     {
                         limpiar();
                         MessageBox.Show("No se encontro el usuario solicitado");
