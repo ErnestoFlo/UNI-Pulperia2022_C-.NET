@@ -26,6 +26,11 @@ namespace PulperiaPY
         {
             conexionDb.llenarDGV(dgvProveedores, "Execute verProveedoresINA");
         }
+        private void CargarTodosProveedores()
+        {
+            conexionDb.llenarDGV(dgvProveedores, "Execute verTodosProveedores");
+            cmbFiltroProv.SelectedIndex = 2;
+        }
         private void limpiarSel()
         {
             foreach (Control c in this.Controls)
@@ -49,7 +54,7 @@ namespace PulperiaPY
         private void FrmProveedor_Load(object sender, EventArgs e)
         {
             cmbEstProv.SelectedIndex = 0;
-            cmbFiltroProv.SelectedIndex = 0;
+            cmbFiltroProv.SelectedIndex = 2;
         }
 
         private void btnAddProv_Click(object sender, EventArgs e)
@@ -59,7 +64,12 @@ namespace PulperiaPY
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            if (txbNameProv.Text != "" && txbTelProv.Text != "" && txbDirProv.Text != "" && cmbEstProv.SelectedIndex != 0)
+            if (txbIdProv.Text != "")
+            {
+                MessageBox.Show("El proveedor ya se encuentra insertado", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else if (txbNameProv.Text != "" && txbTelProv.Text != "" && txbDirProv.Text != "" && cmbEstProv.SelectedIndex != 0)
             {
                 string nombreProov = string.Format(txbNameProv.Text);
                 string telefono = string.Format(txbTelProv.Text);
@@ -72,7 +82,7 @@ namespace PulperiaPY
                     if (conexionDb.ejecutarComandoSQL("Execute crearProveedor '" + nombreProov + "' , '" + telefono + "' , '" + direccion + "', '" + estadoBit + "' "))
                     {
                         MessageBox.Show("Proveedor insertado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarProveedores();
+                        CargarTodosProveedores();
                     }
                     else
                     {
@@ -138,7 +148,7 @@ namespace PulperiaPY
                     if (conexionDb.ejecutarComandoSQL("Execute actualizarProveedor '" + idProv + "' , '" + nombreProov + "' , '" + telefono + "' , '" + direccion + "', '" + estadoBit + "' "))
                     {
                         MessageBox.Show("Proveedor actualizado correctamente", "Actualizado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarProveedores();
+                        CargarTodosProveedores();
                     }
                     else
                     {
@@ -149,7 +159,7 @@ namespace PulperiaPY
             }
             else
             {
-                MessageBox.Show("Seleccione un proveedor", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ingrese los datos solicitados", "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -177,6 +187,14 @@ namespace PulperiaPY
                     //Proveedor encontrado
                 }
                 else
+                {
+                    MessageBox.Show("Error al buscar proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (txbSearProv.Text != "" && estadoFil == "Todos")
+            {
+                string nombreProov = string.Format(txbSearProv.Text);
+                if (!conexionDb.llenarDGV(dgvProveedores, "Execute buscarProveedorAll '" + nombreProov + "'"))
                 {
                     MessageBox.Show("Error al buscar proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -240,21 +258,33 @@ namespace PulperiaPY
 
             if (txbIdProv.Text != "")
             {
-                int idProv = Int32.Parse(txbIdProv.Text);
-                // Displays the MessageBox.
-                result = MessageBox.Show(message, caption, buttons);
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                if (cmbEstProv.SelectedIndex != 2)
                 {
-                    if (conexionDb.ejecutarComandoSQL("Execute eliminarProveedor '" + idProv + "'"))
+                    int idProv = Int32.Parse(txbIdProv.Text);
+                    // Displays the MessageBox.
+                    result = MessageBox.Show(message, caption, buttons);
+                    if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        MessageBox.Show("Proveedor eliminado correctamente", "Eliminado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarProveedores();
+                        if (estadoBit != 0)
+                        {
+                            if (conexionDb.ejecutarComandoSQL("Execute eliminarProveedor '" + idProv + "'"))
+                            {
+                                MessageBox.Show("Proveedor eliminado correctamente", "Eliminado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                CargarTodosProveedores();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar proveedor", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            limpiarSel();
+                        }
+
                     }
-                    else
-                    {
-                        MessageBox.Show("Error al eliminar proveedor", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    limpiarSel();
+
+                }
+                else
+                {
+                    MessageBox.Show("El proveedor ya se encuentra eliminado", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -266,15 +296,19 @@ namespace PulperiaPY
         private void cmbFiltroProv_SelectedIndexChanged(object sender, EventArgs e)
         {
             txbSearProv.Text = "";
-            string estadoFil = cmbFiltroProv.Text;
+            int estadoFil = cmbFiltroProv.SelectedIndex;
 
-            if (estadoFil == "Activos")
+            if (estadoFil == 0)
             {
                 CargarProveedores();
             }
-            else
+            else if (estadoFil == 1)
             {
                 CargarProveedoresIna();
+            }
+            else
+            {
+                CargarTodosProveedores();
             }
         }
     }
