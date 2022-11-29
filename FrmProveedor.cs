@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PulperiaPY
 {
@@ -36,7 +37,7 @@ namespace PulperiaPY
             foreach (Control c in this.Controls)
             {
 
-                if (c is TextBox)
+                if (c is System.Windows.Forms.TextBox)
 
                 {
 
@@ -310,6 +311,72 @@ namespace PulperiaPY
             {
                 CargarTodosProveedores();
             }
+        }
+
+        private void txbTelProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbNameProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnAddProv_MouseHover(object sender, EventArgs e)
+        {
+            btnAddProv.ForeColor = Color.White;
+        }
+
+        private void btnUpdProv_MouseHover(object sender, EventArgs e)
+        {
+            btnUpdProv.ForeColor = Color.White;
+        }
+
+        private void btnAddProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnUpdProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnUpdProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnDelProve_MouseLeave(object sender, EventArgs e)
+        {
+            btnDelProve.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnDelProve_MouseHover(object sender, EventArgs e)
+        {
+            btnDelProve.ForeColor = Color.White;
+        }
+
+        private void btnCleProv_MouseHover(object sender, EventArgs e)
+        {
+            btnCleProv.ForeColor = Color.White;
+        }
+
+        private void btnCleProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnCleProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnSearProv_MouseHover(object sender, EventArgs e)
+        {
+            btnSearProv.ForeColor = Color.White;
+        }
+
+        private void btnSearProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnSearProv.ForeColor = Color.FromArgb(32, 43, 76);
         }
     }
 }
