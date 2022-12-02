@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PulperiaPY
 {
@@ -36,7 +37,7 @@ namespace PulperiaPY
             foreach (Control c in this.Controls)
             {
 
-                if (c is TextBox)
+                if (c is System.Windows.Forms.TextBox)
 
                 {
 
@@ -64,11 +65,20 @@ namespace PulperiaPY
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
+<<<<<<< HEAD
             if(txbIdProv.Text != "")
             {
                 MessageBox.Show("El proveedor ya se encuentra insertado", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             } else if (txbNameProv.Text != "" && txbTelProv.Text != "" && txbDirProv.Text != "" && cmbEstProv.SelectedIndex != 0)
+=======
+            if (txbIdProv.Text != "")
+            {
+                MessageBox.Show("El proveedor ya se encuentra insertado", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else if (txbNameProv.Text != "" && txbTelProv.Text != "" && txbDirProv.Text != "" && cmbEstProv.SelectedIndex != 0)
+>>>>>>> proveedores
             {
                 string nombreProov = string.Format(txbNameProv.Text);
                 string telefono = string.Format(txbTelProv.Text);
@@ -232,14 +242,22 @@ namespace PulperiaPY
 
             if (txbIdProv.Text != "")
             {
+<<<<<<< HEAD
                 if(cmbEstProv.SelectedIndex != 2)
+=======
+                if (cmbEstProv.SelectedIndex != 2)
+>>>>>>> proveedores
                 {
                     int idProv = Int32.Parse(txbIdProv.Text);
                     // Displays the MessageBox.
                     result = MessageBox.Show(message, caption, buttons);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
+<<<<<<< HEAD
                         if(estadoBit != 0)
+=======
+                        if (estadoBit != 0)
+>>>>>>> proveedores
                         {
                             if (conexionDb.ejecutarComandoSQL("Execute eliminarProveedor '" + idProv + "'"))
                             {
@@ -252,7 +270,11 @@ namespace PulperiaPY
                             }
                             limpiarSel();
                         }
+<<<<<<< HEAD
                     
+=======
+
+>>>>>>> proveedores
                     }
 
                 }
@@ -276,7 +298,11 @@ namespace PulperiaPY
             {
                 CargarProveedores();
             }
+<<<<<<< HEAD
             else if(estadoFil == 1)
+=======
+            else if (estadoFil == 1)
+>>>>>>> proveedores
             {
                 CargarProveedoresIna();
             }
@@ -286,36 +312,77 @@ namespace PulperiaPY
             }
         }
 
+<<<<<<< HEAD
+=======
+        private void txbTelProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbNameProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+>>>>>>> proveedores
         private void btnAddProv_MouseHover(object sender, EventArgs e)
         {
             btnAddProv.ForeColor = Color.White;
         }
 
+<<<<<<< HEAD
         private void btnAddProv_MouseLeave(object sender, EventArgs e)
         {
             btnAddProv.ForeColor = Color.FromArgb(32, 43, 76);
         }
 
+=======
+>>>>>>> proveedores
         private void btnUpdProv_MouseHover(object sender, EventArgs e)
         {
             btnUpdProv.ForeColor = Color.White;
         }
 
+<<<<<<< HEAD
+=======
+        private void btnAddProv_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddProv.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+>>>>>>> proveedores
         private void btnUpdProv_MouseLeave(object sender, EventArgs e)
         {
             btnUpdProv.ForeColor = Color.FromArgb(32, 43, 76);
         }
 
+<<<<<<< HEAD
         private void btnDelProve_MouseHover(object sender, EventArgs e)
         {
             btnDelProve.ForeColor = Color.White;
         }
 
+=======
+>>>>>>> proveedores
         private void btnDelProve_MouseLeave(object sender, EventArgs e)
         {
             btnDelProve.ForeColor = Color.FromArgb(32, 43, 76);
         }
 
+<<<<<<< HEAD
+=======
+        private void btnDelProve_MouseHover(object sender, EventArgs e)
+        {
+            btnDelProve.ForeColor = Color.White;
+        }
+
+>>>>>>> proveedores
         private void btnCleProv_MouseHover(object sender, EventArgs e)
         {
             btnCleProv.ForeColor = Color.White;
@@ -334,6 +401,7 @@ namespace PulperiaPY
         private void btnSearProv_MouseLeave(object sender, EventArgs e)
         {
             btnSearProv.ForeColor = Color.FromArgb(32, 43, 76);
+<<<<<<< HEAD
         }
 
 
@@ -373,6 +441,8 @@ namespace PulperiaPY
         private void txbDirProv_KeyPress(object sender, KeyPressEventArgs e)
         {  
 
+=======
+>>>>>>> proveedores
         }
     }
 }
