@@ -21,6 +21,7 @@ namespace PulperiaPY
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         String connection = "Server=tcp:gestiong1.database.windows.net,1433;Database=pulperiaproyect;User ID=AdminUnicah;Password=Gestiongrup01;Trusted_Connection=False;Encrypt=True;";
 >>>>>>> bitacora
 =======
@@ -29,6 +30,9 @@ namespace PulperiaPY
 =======
         String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 >>>>>>> login
+=======
+        public String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+>>>>>>> producto
         public SqlConnection Conectar = new SqlConnection();
         public SqlDataAdapter adaptador;
         public DataTable tablaDatos;

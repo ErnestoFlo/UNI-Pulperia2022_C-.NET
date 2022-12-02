@@ -18,6 +18,7 @@ namespace PulperiaPY
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             Application.Run(new FrmProveedor());
 =======
             Application.Run(new Bitacora());
@@ -28,6 +29,9 @@ namespace PulperiaPY
 =======
             Application.Run(new Inventario());
 >>>>>>> inventario
+=======
+            Application.Run(new Producto());
+>>>>>>> producto
         }
     }
 }
