@@ -18,6 +18,7 @@ namespace PulperiaPY
 
 =======
         //String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaHermanos; Integrated Security= True";
+<<<<<<< HEAD
         String connection = "Server=tcp:gestiong1.database.windows.net,1433;Database=pulperiaproyect;User ID=AdminUnicah;Password=Gestiongrup01;Trusted_Connection=False;Encrypt=True;";
 >>>>>>> bitacora
         public SqlConnection Conectar = new SqlConnection();
@@ -27,6 +28,12 @@ namespace PulperiaPY
         public SqlCommand comando;
 
         public Conexion(){
+=======
+        String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        public SqlConnection Conectar = new SqlConnection();
+        public Conexion()
+        {
+>>>>>>> compra
             Conectar.ConnectionString = connection;
         }
 

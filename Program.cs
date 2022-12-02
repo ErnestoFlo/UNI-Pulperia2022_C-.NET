@@ -16,10 +16,14 @@ namespace PulperiaPY
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
             Application.Run(new FrmProveedor());
 =======
             Application.Run(new Bitacora());
 >>>>>>> bitacora
+=======
+            Application.Run(new FrmCompra());
+>>>>>>> compra
         }
     }
 }
