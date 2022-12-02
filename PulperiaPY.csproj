@@ -15,7 +15,10 @@
     <TargetFrameworkProfile />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> venta
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,11 +34,14 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+<<<<<<< HEAD
 >>>>>>> menuPrincipal
 =======
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
 >>>>>>> proveedor
+=======
+>>>>>>> venta
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,12 +67,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
     </StartupObject>
 >>>>>>> menuPrincipal
+=======
+>>>>>>> venta
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework" />
@@ -308,6 +317,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="FrmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -456,6 +466,34 @@
     <EmbeddedResource Include="Producto.resx">
       <DependentUpon>Producto.cs</DependentUpon>
 >>>>>>> producto
+=======
+    <Compile Include="ProductosVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductosVenta.Designer.cs">
+      <DependentUpon>ProductosVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\clsVariableGlobales.cs" />
+    <Compile Include="Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venta.Designer.cs">
+      <DependentUpon>Venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerVentas.Designer.cs">
+      <DependentUpon>VerVentas.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductosVenta.resx">
+      <DependentUpon>ProductosVenta.cs</DependentUpon>
+>>>>>>> venta
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -467,6 +505,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -511,6 +550,15 @@
     </None>
     <None Include="packages.config" />
 >>>>>>> proveedor
+=======
+    <EmbeddedResource Include="Venta.resx">
+      <DependentUpon>Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerVentas.resx">
+      <DependentUpon>VerVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+>>>>>>> venta
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -612,6 +660,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\smartphone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

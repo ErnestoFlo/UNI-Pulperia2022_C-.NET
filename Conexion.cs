@@ -13,6 +13,7 @@ namespace PulperiaPY
     class Conexion
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         String connection = "Data Source=DESKTOP-NQIVP0D; Initial Catalog = pulperiaproyect; Integrated Security= True";
         //String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
@@ -33,12 +34,19 @@ namespace PulperiaPY
 =======
         public String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 >>>>>>> producto
+=======
+        String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaproyect; Integrated Security= True";
+        //String connection = "Server=tcp:pulperia.database.windows.net,1433;Initial Catalog=GrupoClinica;Persist Security Info=False;User ID=administrador;Password=Pulperia2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+>>>>>>> venta
         public SqlConnection Conectar = new SqlConnection();
         public SqlDataAdapter adaptador;
         public DataTable tablaDatos;
         public SqlDataReader lectorVariables;
         public SqlCommand comando;
+<<<<<<< HEAD
 
+=======
+>>>>>>> venta
         public Conexion(){
 =======
         String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
@@ -95,12 +103,19 @@ namespace PulperiaPY
             catch (Exception e)
             {
                 Conectar.Close();
+<<<<<<< HEAD
                 MessageBox.Show("Error al ejecutar comando SQL. " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+=======
+                MessageBox.Show("Error en la conexión! "+ e.Message, "Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+>>>>>>> venta
                 return false;
             }
 
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> venta
         //Agrega informacion de una consulta SQL a un datagridview
         public bool llenarDGV(DataGridView dgv, string instruccion)
         {
@@ -122,5 +137,79 @@ namespace PulperiaPY
             }
             finally { Conectar.Close(); }
         }
+<<<<<<< HEAD
+=======
+
+        //Agrega informacion de una consulta SQL a un DataTable
+        public DataTable llenarDT(string instruccion)
+        {
+            try
+            {
+                Conectar.Open();
+                adaptador = new SqlDataAdapter(instruccion, Conectar);
+                tablaDatos = new DataTable();
+                adaptador.Fill(tablaDatos);
+                Conectar.Close();
+                return tablaDatos;
+            }
+            catch (Exception)
+            {
+                Conectar.Close();
+                MessageBox.Show("Error en la conexión");
+                return null;
+            }
+            finally { Conectar.Close(); }
+        }
+
+        //Metodo para obtener variables INT de la base de datos. (Se envia el comando sql) de donde se quiere obtener la variable [RETORNA -1 SI NO ENCUENTRA UN VALOR]
+        public int obtenerVariableEntera(string instruccion)
+        {
+            try
+            {
+                Conectar.Open();
+                int valor = 0;
+                comando = new SqlCommand(instruccion, Conectar);
+                lectorVariables = comando.ExecuteReader();
+                if (lectorVariables.Read())
+                {
+                    valor = Convert.ToInt16(lectorVariables.GetValue(0));
+                }
+                lectorVariables.Close();
+                Conectar.Close();
+                return valor;
+            }
+            catch (Exception)
+            {
+                Conectar.Close();
+                MessageBox.Show("Error en la conexión");
+                return -1;
+            }
+            finally { Conectar.Close(); }
+        }        //Metodo para obtener variables DECIMAL de la base de datos. (Se envia el comando sql) de donde se quiere obtener la variable [RETORNA -1 SI NO ENCUENTRA UN VALOR]
+        public decimal obtenerVariableDecimal(string instruccion)
+        {
+            try
+            {
+                Conectar.Open();
+                decimal valor = 0;
+                comando = new SqlCommand(instruccion, Conectar);
+                lectorVariables = comando.ExecuteReader();
+                if (lectorVariables.Read())
+                {
+                    valor = Convert.ToDecimal(lectorVariables.GetValue(0));
+                }
+                lectorVariables.Close();
+                Conectar.Close();
+                return valor;
+            }
+            catch (Exception)
+            {
+                Conectar.Close();
+                MessageBox.Show("Error en la conexión");
+                return -1;
+            }
+            finally { Conectar.Close(); }
+        }
+>>>>>>> venta
     }
 }
