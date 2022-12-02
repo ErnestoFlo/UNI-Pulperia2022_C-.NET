@@ -12,7 +12,11 @@ namespace PulperiaPY.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+<<<<<<< HEAD
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.3.0.0")]
+=======
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+>>>>>>> proveedor
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,6 +30,7 @@ namespace PulperiaPY.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
 <<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Pe" +
             "rsist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleAct" +
@@ -41,6 +46,13 @@ namespace PulperiaPY.Properties {
             get {
                 return ((string)(this["connection"]));
 >>>>>>> inventario
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=gestiong1.database.windows.net;Initial Catalog=pulperiaproyect;Persis" +
+            "t Security Info=True;User ID=AdminUnicah;Password=Gestiongrup01")]
+        public string cn {
+            get {
+                return ((string)(this["cn"]));
+>>>>>>> proveedor
             }
         }
     }
