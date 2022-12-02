@@ -26,6 +26,7 @@ namespace PulperiaPY.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Pe" +
             "rsist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleAct" +
             "iveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout" +
@@ -33,6 +34,13 @@ namespace PulperiaPY.Properties {
         public string PulperiaHermanosConnectionString {
             get {
                 return ((string)(this["PulperiaHermanosConnectionString"]));
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=gestiong1.database.windows.net;Initial Catalog=pulperiaproyect;Persis" +
+            "t Security Info=True;User ID=AdminUnicah;Password=Gestiongrup01")]
+        public string connection {
+            get {
+                return ((string)(this["connection"]));
+>>>>>>> inventario
             }
         }
     }
