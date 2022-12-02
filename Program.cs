@@ -15,7 +15,11 @@ namespace PulperiaPY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new FrmProveedor());
+=======
+            Application.Run(new Bitacora());
+>>>>>>> bitacora
         }
     }
 }
