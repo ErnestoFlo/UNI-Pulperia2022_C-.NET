@@ -65,20 +65,12 @@ namespace PulperiaPY
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-<<<<<<< HEAD
-            if(txbIdProv.Text != "")
-            {
-                MessageBox.Show("El proveedor ya se encuentra insertado", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            } else if (txbNameProv.Text != "" && txbTelProv.Text != "" && txbDirProv.Text != "" && cmbEstProv.SelectedIndex != 0)
-=======
             if (txbIdProv.Text != "")
             {
                 MessageBox.Show("El proveedor ya se encuentra insertado", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else if (txbNameProv.Text != "" && txbTelProv.Text != "" && txbDirProv.Text != "" && cmbEstProv.SelectedIndex != 0)
->>>>>>> proveedores
             {
                 string nombreProov = string.Format(txbNameProv.Text);
                 string telefono = string.Format(txbTelProv.Text);
@@ -216,7 +208,32 @@ namespace PulperiaPY
 
         private void txbSearProv_TextChanged(object sender, EventArgs e)
         {
-            
+            string estadoFil = cmbFiltroProv.Text;
+
+            if (estadoFil == "Activos")
+            {
+                string nombreProov = string.Format(txbSearProv.Text);
+                if (conexionDb.llenarDGV(dgvProveedores, "Execute buscarProveedor '" + nombreProov + "'"))
+                {
+                    //Proveedor encontrado
+                }
+                else
+                {
+                    MessageBox.Show("Error al buscar proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (estadoFil == "Inactivos")
+            {
+                string nombreProov = string.Format(txbSearProv.Text);
+                if (conexionDb.llenarDGV(dgvProveedores, "Execute buscarProveedorIna '" + nombreProov + "'"))
+                {
+                    //Proveedor encontrado
+                }
+                else
+                {
+                    MessageBox.Show("Error al buscar proveedor", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void cmbEstProv_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,22 +259,14 @@ namespace PulperiaPY
 
             if (txbIdProv.Text != "")
             {
-<<<<<<< HEAD
-                if(cmbEstProv.SelectedIndex != 2)
-=======
                 if (cmbEstProv.SelectedIndex != 2)
->>>>>>> proveedores
                 {
                     int idProv = Int32.Parse(txbIdProv.Text);
                     // Displays the MessageBox.
                     result = MessageBox.Show(message, caption, buttons);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-<<<<<<< HEAD
-                        if(estadoBit != 0)
-=======
                         if (estadoBit != 0)
->>>>>>> proveedores
                         {
                             if (conexionDb.ejecutarComandoSQL("Execute eliminarProveedor '" + idProv + "'"))
                             {
@@ -270,11 +279,7 @@ namespace PulperiaPY
                             }
                             limpiarSel();
                         }
-<<<<<<< HEAD
-                    
-=======
 
->>>>>>> proveedores
                     }
 
                 }
@@ -298,11 +303,7 @@ namespace PulperiaPY
             {
                 CargarProveedores();
             }
-<<<<<<< HEAD
-            else if(estadoFil == 1)
-=======
             else if (estadoFil == 1)
->>>>>>> proveedores
             {
                 CargarProveedoresIna();
             }
@@ -312,8 +313,6 @@ namespace PulperiaPY
             }
         }
 
-<<<<<<< HEAD
-=======
         private void txbTelProv_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -330,59 +329,36 @@ namespace PulperiaPY
             }
         }
 
->>>>>>> proveedores
         private void btnAddProv_MouseHover(object sender, EventArgs e)
         {
             btnAddProv.ForeColor = Color.White;
         }
 
-<<<<<<< HEAD
-        private void btnAddProv_MouseLeave(object sender, EventArgs e)
-        {
-            btnAddProv.ForeColor = Color.FromArgb(32, 43, 76);
-        }
-
-=======
->>>>>>> proveedores
         private void btnUpdProv_MouseHover(object sender, EventArgs e)
         {
             btnUpdProv.ForeColor = Color.White;
         }
 
-<<<<<<< HEAD
-=======
         private void btnAddProv_MouseLeave(object sender, EventArgs e)
         {
             btnAddProv.ForeColor = Color.FromArgb(32, 43, 76);
         }
 
->>>>>>> proveedores
         private void btnUpdProv_MouseLeave(object sender, EventArgs e)
         {
             btnUpdProv.ForeColor = Color.FromArgb(32, 43, 76);
         }
 
-<<<<<<< HEAD
-        private void btnDelProve_MouseHover(object sender, EventArgs e)
-        {
-            btnDelProve.ForeColor = Color.White;
-        }
-
-=======
->>>>>>> proveedores
         private void btnDelProve_MouseLeave(object sender, EventArgs e)
         {
             btnDelProve.ForeColor = Color.FromArgb(32, 43, 76);
         }
 
-<<<<<<< HEAD
-=======
         private void btnDelProve_MouseHover(object sender, EventArgs e)
         {
             btnDelProve.ForeColor = Color.White;
         }
 
->>>>>>> proveedores
         private void btnCleProv_MouseHover(object sender, EventArgs e)
         {
             btnCleProv.ForeColor = Color.White;
@@ -401,48 +377,36 @@ namespace PulperiaPY
         private void btnSearProv_MouseLeave(object sender, EventArgs e)
         {
             btnSearProv.ForeColor = Color.FromArgb(32, 43, 76);
-<<<<<<< HEAD
         }
 
+        private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txbIdProv.Text = dgvProveedores.CurrentRow.Cells[0].Value.ToString();
+                txbNameProv.Text = dgvProveedores.CurrentRow.Cells[1].Value.ToString();
+                txbTelProv.Text = dgvProveedores.CurrentRow.Cells[2].Value.ToString();
+                txbDirProv.Text = dgvProveedores.CurrentRow.Cells[3].Value.ToString();
+                string valorCel = dgvProveedores.CurrentRow.Cells[4].Value.ToString();
+                bool numCel = Convert.ToBoolean(valorCel);
+                if (numCel)
+                {
+                    cmbEstProv.SelectedIndex = 1;
+                }
+                else
+                {
+                    cmbEstProv.SelectedIndex = 2;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error al seleccionar proveedor", "Error al seleccionar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-        private void btnReporte_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void txbTelProv_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txbNameProv_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsLetter(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txbDirProv_KeyPress(object sender, KeyPressEventArgs e)
-        {  
-
-=======
->>>>>>> proveedores
         }
     }
 }

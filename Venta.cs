@@ -888,5 +888,11 @@ namespace PulperiaPY
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReporteVentas detalleCompra = new ReporteVentas();
+            detalleCompra.Show();
+        }
     }
 }

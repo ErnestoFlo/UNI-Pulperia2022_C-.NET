@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PulperiaPY
@@ -15,27 +16,7 @@ namespace PulperiaPY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            Application.Run(new FrmProveedor());
-=======
-            Application.Run(new Bitacora());
->>>>>>> bitacora
-=======
-            Application.Run(new FrmCompra());
->>>>>>> compra
-=======
-            Application.Run(new Inventario());
->>>>>>> inventario
-=======
-            Application.Run(new Producto());
->>>>>>> producto
-=======
-            Application.Run(new Venta());
->>>>>>> venta
+            Application.Run(new Form1());
         }
     }
 }

@@ -41,8 +41,11 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -53,10 +56,10 @@
             this.panel1.Controls.Add(this.cboxfilter);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 37);
+            this.panel1.Location = new System.Drawing.Point(14, 46);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1102, 145);
+            this.panel1.Size = new System.Drawing.Size(1098, 181);
             this.panel1.TabIndex = 0;
             // 
             // btnclear
@@ -68,12 +71,12 @@
             this.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnclear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnclear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnclear.Location = new System.Drawing.Point(958, 5);
+            this.btnclear.Location = new System.Drawing.Point(906, 58);
             this.btnclear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnclear.Name = "btnclear";
-            this.btnclear.Size = new System.Drawing.Size(111, 50);
+            this.btnclear.Size = new System.Drawing.Size(125, 63);
             this.btnclear.TabIndex = 5;
-            this.btnclear.Text = "Limpiar Filtro";
+            this.btnclear.Text = "Limpiar";
             this.btnclear.UseVisualStyleBackColor = false;
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             this.btnclear.MouseLeave += new System.EventHandler(this.btnclear_MouseLeave);
@@ -88,10 +91,10 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnBuscar.Location = new System.Drawing.Point(775, 82);
+            this.btnBuscar.Location = new System.Drawing.Point(754, 59);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(111, 50);
+            this.btnBuscar.Size = new System.Drawing.Size(125, 62);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -102,10 +105,10 @@
             // txtvalorbuscar
             // 
             this.txtvalorbuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtvalorbuscar.Location = new System.Drawing.Point(542, 84);
+            this.txtvalorbuscar.Location = new System.Drawing.Point(500, 72);
             this.txtvalorbuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtvalorbuscar.Name = "txtvalorbuscar";
-            this.txtvalorbuscar.Size = new System.Drawing.Size(206, 34);
+            this.txtvalorbuscar.Size = new System.Drawing.Size(231, 34);
             this.txtvalorbuscar.TabIndex = 3;
             // 
             // cboxfilter
@@ -115,17 +118,17 @@
             this.cboxfilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxfilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.cboxfilter.FormattingEnabled = true;
-            this.cboxfilter.Location = new System.Drawing.Point(248, 84);
+            this.cboxfilter.Location = new System.Drawing.Point(169, 72);
             this.cboxfilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboxfilter.Name = "cboxfilter";
-            this.cboxfilter.Size = new System.Drawing.Size(224, 36);
+            this.cboxfilter.Size = new System.Drawing.Size(252, 36);
             this.cboxfilter.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(128, 87);
+            this.label2.Location = new System.Drawing.Point(34, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 28);
             this.label2.TabIndex = 1;
@@ -135,7 +138,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label1.Location = new System.Drawing.Point(25, 6);
+            this.label1.Location = new System.Drawing.Point(28, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 37);
             this.label1.TabIndex = 0;
@@ -163,13 +166,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsers.GridColor = System.Drawing.Color.White;
-            this.dgvUsers.Location = new System.Drawing.Point(85, 211);
+            this.dgvUsers.Location = new System.Drawing.Point(14, 246);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(976, 442);
+            this.dgvUsers.Size = new System.Drawing.Size(1098, 552);
             this.dgvUsers.TabIndex = 1;
             this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
             // 
@@ -182,10 +185,10 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnEditar.Location = new System.Drawing.Point(1175, 302);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Location = new System.Drawing.Point(180, 59);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(111, 50);
+            this.btnEditar.Size = new System.Drawing.Size(125, 72);
             this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -202,10 +205,10 @@
             this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnagregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnagregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnagregar.Location = new System.Drawing.Point(1175, 222);
-            this.btnagregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnagregar.Location = new System.Drawing.Point(35, 59);
+            this.btnagregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(111, 50);
+            this.btnagregar.Size = new System.Drawing.Size(125, 72);
             this.btnagregar.TabIndex = 3;
             this.btnagregar.Text = "Agregar";
             this.btnagregar.UseVisualStyleBackColor = false;
@@ -222,10 +225,10 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.btnEliminar.Location = new System.Drawing.Point(1175, 381);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(324, 59);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(111, 50);
+            this.btnEliminar.Size = new System.Drawing.Size(125, 72);
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -233,15 +236,36 @@
             this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
             this.btnEliminar.MouseHover += new System.EventHandler(this.btnEliminar_MouseHover);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.btnEliminar);
+            this.panel2.Controls.Add(this.btnEditar);
+            this.panel2.Controls.Add(this.btnagregar);
+            this.panel2.Location = new System.Drawing.Point(1137, 46);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(487, 181);
+            this.panel2.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label4.Location = new System.Drawing.Point(28, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 46);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Acciones";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // ListadoUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1471, 1011);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnagregar);
+            this.ClientSize = new System.Drawing.Size(1655, 1264);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -253,6 +277,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -270,5 +296,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnagregar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -295,7 +295,7 @@
             this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizar.Image = global::PulperiaPY.Properties.Resources.Icono_Maximizar;
+            //this.btnMaximizar.Image = global::PulperiaPY.Properties.Resources.Icono_Maximizar;
             this.btnMaximizar.Location = new System.Drawing.Point(981, 1);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(40, 40);
@@ -309,7 +309,7 @@
             this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Image = global::PulperiaPY.Properties.Resources.Icono_Minimizar;
+            //this.btnMinimizar.Image = global::PulperiaPY.Properties.Resources.Icono_Minimizar;
             this.btnMinimizar.Location = new System.Drawing.Point(935, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
@@ -323,7 +323,7 @@
             this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Image = global::PulperiaPY.Properties.Resources.Icono_cerrar_FN;
+            //this.btnCerrar.Image = global::PulperiaPY.Properties.Resources.Icono_cerrar_FN;
             this.btnCerrar.Location = new System.Drawing.Point(1027, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(40, 40);

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32929.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulperiaPY", "PulperiaPY.csproj", "{0B6B3BC8-753D-45DA-A782-B6D466F57976}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulperiaPY", "PulperiaPY.csproj", "{AEF66347-E3C8-46BB-AFA8-48045E9321B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0B6B3BC8-753D-45DA-A782-B6D466F57976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B6B3BC8-753D-45DA-A782-B6D466F57976}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B6B3BC8-753D-45DA-A782-B6D466F57976}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B6B3BC8-753D-45DA-A782-B6D466F57976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF66347-E3C8-46BB-AFA8-48045E9321B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF66347-E3C8-46BB-AFA8-48045E9321B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF66347-E3C8-46BB-AFA8-48045E9321B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF66347-E3C8-46BB-AFA8-48045E9321B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4D059162-FC47-43FA-9D60-806A149CEB9B}
+		SolutionGuid = {A23C8634-AF4C-4DF4-99B0-9E3DB9197B47}
 	EndGlobalSection
 EndGlobal

@@ -338,6 +338,11 @@ namespace PulperiaPY
         {
             btnBuscar.ForeColor = Color.FromArgb(32, 43, 76);
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

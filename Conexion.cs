@@ -12,48 +12,17 @@ namespace PulperiaPY
 {
     class Conexion
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        String connection = "Data Source=DESKTOP-NQIVP0D; Initial Catalog = pulperiaproyect; Integrated Security= True";
-        //String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-=======
         //String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaHermanos; Integrated Security= True";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        String connection = "Server=tcp:gestiong1.database.windows.net,1433;Database=pulperiaproyect;User ID=AdminUnicah;Password=Gestiongrup01;Trusted_Connection=False;Encrypt=True;";
->>>>>>> bitacora
-=======
         public String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
->>>>>>> inventario
-=======
-        String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
->>>>>>> login
-=======
-        public String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
->>>>>>> producto
-=======
-        String connection = "Data Source=(local)\\SQLEXPRESS; Initial Catalog = pulperiaproyect; Integrated Security= True";
-        //String connection = "Server=tcp:pulperia.database.windows.net,1433;Initial Catalog=GrupoClinica;Persist Security Info=False;User ID=administrador;Password=Pulperia2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
->>>>>>> venta
         public SqlConnection Conectar = new SqlConnection();
+
         public SqlDataAdapter adaptador;
         public DataTable tablaDatos;
         public SqlDataReader lectorVariables;
         public SqlCommand comando;
-<<<<<<< HEAD
 
-=======
->>>>>>> venta
-        public Conexion(){
-=======
-        String connection = "Server=tcp:gestiong1.database.windows.net,1433;Initial Catalog=pulperiaproyect;Persist Security Info=False;User ID=AdminUnicah;Password=Gestiongrup01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        public SqlConnection Conectar = new SqlConnection();
         public Conexion()
         {
->>>>>>> compra
             Conectar.ConnectionString = connection;
         }
 
@@ -61,7 +30,7 @@ namespace PulperiaPY
         {
             try
             {
-                this.Conectar.Open();
+                Conectar.Open();
                 Console.WriteLine("Conexion Exitosa!");
             }
             catch (Exception e)
@@ -103,19 +72,12 @@ namespace PulperiaPY
             catch (Exception e)
             {
                 Conectar.Close();
-<<<<<<< HEAD
                 MessageBox.Show("Error al ejecutar comando SQL. " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-=======
-                MessageBox.Show("Error en la conexión! "+ e.Message, "Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
->>>>>>> venta
                 return false;
             }
 
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> venta
         //Agrega informacion de una consulta SQL a un datagridview
         public bool llenarDGV(DataGridView dgv, string instruccion)
         {
@@ -134,29 +96,6 @@ namespace PulperiaPY
                 Conectar.Close();
                 MessageBox.Show("Error en la conexión");
                 return false;
-            }
-            finally { Conectar.Close(); }
-        }
-<<<<<<< HEAD
-=======
-
-        //Agrega informacion de una consulta SQL a un DataTable
-        public DataTable llenarDT(string instruccion)
-        {
-            try
-            {
-                Conectar.Open();
-                adaptador = new SqlDataAdapter(instruccion, Conectar);
-                tablaDatos = new DataTable();
-                adaptador.Fill(tablaDatos);
-                Conectar.Close();
-                return tablaDatos;
-            }
-            catch (Exception)
-            {
-                Conectar.Close();
-                MessageBox.Show("Error en la conexión");
-                return null;
             }
             finally { Conectar.Close(); }
         }
@@ -210,6 +149,27 @@ namespace PulperiaPY
             }
             finally { Conectar.Close(); }
         }
->>>>>>> venta
+
+        //Agrega informacion de una consulta SQL a un DataTable
+        public DataTable llenarDT(string instruccion)
+        {
+            try
+            {
+                Conectar.Open();
+                adaptador = new SqlDataAdapter(instruccion, Conectar);
+                tablaDatos = new DataTable();
+                adaptador.Fill(tablaDatos);
+                Conectar.Close();
+                return tablaDatos;
+            }
+            catch (Exception)
+            {
+                Conectar.Close();
+                MessageBox.Show("Error en la conexión");
+                return null;
+            }
+            finally { Conectar.Close(); }
+        }
+
     }
 }

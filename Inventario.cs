@@ -200,5 +200,55 @@ namespace PulperiaPY
             Producto producto = new Producto();
             producto.Show();
         }
+
+        private void btnAgregar_MouseHover(object sender, EventArgs e)
+        {
+            btnAgregar.ForeColor = Color.White;
+        }
+
+        private void btnAgregar_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            btnAgregar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnEditar_MouseHover(object sender, EventArgs e)
+        {
+            btnEditar.ForeColor = Color.White;
+        }
+
+        private void btnEditar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnEliminar_MouseHover(object sender, EventArgs e)
+        {
+            btnEliminar.ForeColor = Color.White; 
+        }
+
+        private void btnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEliminar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnLimpiar_MouseHover(object sender, EventArgs e)
+        {
+            btnLimpiar.ForeColor = Color.White;
+        }
+
+        private void btnLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            btnLimpiar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnReporte_MouseHover(object sender, EventArgs e)
+        {
+            btnReporte.ForeColor = Color.White; 
+        }
+
+        private void btnReporte_MouseLeave(object sender, EventArgs e)
+        {
+            btnReporte.ForeColor = Color.FromArgb(32, 43, 76);
+        }
     }
 }

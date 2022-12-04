@@ -466,6 +466,29 @@ namespace PulperiaPY
             Busqueda("Select * from ListaCompras ", dgvCompra, "Proveedor LIKE '%" + txtBuscarCompra.Text + "%'");
         }
 
+        private void dgvCompra_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvCompra.Rows[e.RowIndex];
+                txtNombreProveedor.Text = row.Cells[0].Value.ToString();
+                txtIdProveedor.Text = row.Cells[1].Value.ToString();
+                //dtpFechaAdquisicion.Text =  row.Cells[2].Value.ToString();
+                txtIdCompra.Text = row.Cells[3].Value.ToString();
+                cmbEstado.SelectedIndex = Convert.ToInt32(row.Cells[5].Value.ToString()) - 1;
+            }
+        }
+
+        private void dgvProveedores_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProveedores.Rows[e.RowIndex];
+                txtIdProveedor.Text = row.Cells[0].Value.ToString();
+                txtNombreProveedor.Text = row.Cells[1].Value.ToString();
+            }
+        }
+
 
 
         /************************************************************************************************/

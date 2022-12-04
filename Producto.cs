@@ -121,19 +121,28 @@ namespace PulperiaPY
         {
             using (SqlConnection conn = new SqlConnection())
             {
-                conn.ConnectionString = conexion.connection;
-                conn.Open();
-                SqlCommand sqlComm = new SqlCommand("InsertarProducto", conn);
-                sqlComm.CommandType = CommandType.StoredProcedure;
-                sqlComm.Parameters.AddWithValue("@IdMarca", Int32.Parse(marcacb.SelectedValue.ToString()));
-                sqlComm.Parameters.AddWithValue("@IdCategoria", Int32.Parse(categoriacb.SelectedValue.ToString()));
-                sqlComm.Parameters.AddWithValue("@CodigoProducto", Int64.Parse(txtCodigo.Text));
-                sqlComm.Parameters.AddWithValue("@NombreProducto", txtNombre.Text);
-                sqlComm.Parameters.AddWithValue("@PrecioSugerido", txtPrecio.Text);
-                sqlComm.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Producto agregado con éxito");
-                Limpiar();
+                try
+                {
+                    conn.ConnectionString = conexion.connection;
+                    conn.Open();
+                    SqlCommand sqlComm = new SqlCommand("InsertarProducto", conn);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.Parameters.AddWithValue("@IdMarca", Int32.Parse(marcacb.SelectedValue.ToString()));
+                    sqlComm.Parameters.AddWithValue("@IdCategoria", Int32.Parse(categoriacb.SelectedValue.ToString()));
+                    sqlComm.Parameters.AddWithValue("@CodigoProducto", Int64.Parse(txtCodigo.Text));
+                    sqlComm.Parameters.AddWithValue("@NombreProducto", txtNombre.Text);
+                    sqlComm.Parameters.AddWithValue("@PrecioSugerido", txtPrecio.Text);
+                    sqlComm.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Producto agregado con éxito");
+                    Limpiar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    MessageBox.Show("Ha ocurrido un error...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
@@ -206,6 +215,86 @@ namespace PulperiaPY
         {
             esconder();
             habilitar();
+        }
+
+        private void gbInformacionVenta_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCategoria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_MouseHover(object sender, EventArgs e)
+        {
+            btnAgregar.ForeColor = Color.White;
+        }
+
+        private void btnAgregar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAgregar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnCancelar_MouseHover(object sender, EventArgs e)
+        {
+            btnCancelar.ForeColor = Color.White;
+        }
+
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnLimpiar_MouseHover(object sender, EventArgs e)
+        {
+            btnLimpiar.ForeColor = Color.White;
+        }
+
+        private void btnLimpiar_MouseLeave(object sender, EventArgs e)
+        {
+            btnLimpiar.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnNM_MouseHover(object sender, EventArgs e)
+        {
+            btnNM.ForeColor = Color.White;
+        }
+
+        private void btnNM_MouseLeave(object sender, EventArgs e)
+        {
+            btnNM.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnNC_MouseHover(object sender, EventArgs e)
+        {
+            btnNC.ForeColor = Color.White;
+        }
+
+        private void btnNC_MouseLeave(object sender, EventArgs e)
+        {
+            btnNC.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnAgregaNuevo_MouseHover(object sender, EventArgs e)
+        {
+            btnAgregaNuevo.ForeColor = Color.White;
+        }
+
+        private void btnAgregaNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            btnAgregaNuevo.ForeColor = Color.FromArgb(32, 43, 76);
+        }
+
+        private void btnCancelarNuevo_MouseHover(object sender, EventArgs e)
+        {
+            btnCancelarNuevo.ForeColor = Color.White;
+        }
+
+        private void btnCancelarNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.ForeColor = Color.FromArgb(32, 43, 76);
         }
     }
 }
