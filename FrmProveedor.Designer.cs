@@ -188,7 +188,7 @@ namespace PulperiaPY
             this.txbSearProv.Name = "txbSearProv";
             this.txbSearProv.Size = new System.Drawing.Size(301, 29);
             this.txbSearProv.TabIndex = 12;
-            this.txbSearProv.TextChanged += new System.EventHandler(this.txbSearProv_TextChanged);
+            this.txbSearProv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSearProv_KeyPress);
             // 
             // txbIdProv
             // 
